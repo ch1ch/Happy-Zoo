@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  Happy Zoo
+//  test1
 //
-//  Created by f on 1/5/13.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Created by f on 10/26/12.
+//  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +13,7 @@
 {
 	UIWindow *window_;
 	UINavigationController *navController_;
-	
+
 	CCDirectorIOS	*director_;							// weak ref
 }
 
