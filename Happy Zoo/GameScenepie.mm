@@ -63,7 +63,7 @@ static FirstScene* multiLayerSceneInstance;
     {
         CCLOG(@" %@ : %@",NSStringFromSelector(_cmd),self);
         CGSize screenSize=[[CCDirector sharedDirector] winSize];
-        gamestarscore=2;
+        //gamestarscore=2;
         
        //圆形阀门
         Pipeline=[CCSprite spriteWithFile:@"pipeline_switch-first.png"];

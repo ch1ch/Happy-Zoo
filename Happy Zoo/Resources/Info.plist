@@ -50,6 +50,11 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DayDream.ttf</string>
+		<string>UIFont font-family</string>
+	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -71,11 +76,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>UIAppFonts</key>
-     <array>
-      <string>DayDream.ttf</string>
-      <string>UIFont font-family</string>
-
-</array>
 </dict>
 </plist>

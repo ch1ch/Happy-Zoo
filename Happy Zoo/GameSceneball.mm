@@ -862,18 +862,17 @@
                         [angrass  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:nagrass]];
                     }
                     [angrass setDelayPerUnit:0.5f];
-                //    id actback =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.5f], [CCAnimate  actionWithAnimation:angrass], NULL]];
+
                     
                     id acfover = [CCCallFunc actionWithTarget:self selector:@selector(gampause)];
-              // /    [bang  runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.5f], [CCAnimate  actionWithAnimation:angrass],acfover,NULL]];
+
 
 
                 }
         }
     }
     
-
-    
+   
     
 }
 
@@ -886,9 +885,7 @@
     
 	CCSequence* sequence = [CCSequence actions:move,nil];
 	[spider runAction:sequence];
-    
-    
-    
+  
 }
 
 

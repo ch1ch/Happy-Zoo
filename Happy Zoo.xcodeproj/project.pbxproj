@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A587F1F316CA04B30099247B /* pigrun-land01.png in Resources */ = {isa = PBXBuildFile; fileRef = A587F1F016CA04B30099247B /* pigrun-land01.png */; };
 		A587F1F416CA04B30099247B /* pigrun-pig.png in Resources */ = {isa = PBXBuildFile; fileRef = A587F1F116CA04B30099247B /* pigrun-pig.png */; };
 		A587F1F516CA04B30099247B /* pigrun-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A587F1F216CA04B30099247B /* pigrun-sign.png */; };
+		A58BA24B1712FE4C00394BB4 /* pig_land_car.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58BA2471712FE4C00394BB4 /* pig_land_car.plist */; };
+		A58BA24C1712FE4C00394BB4 /* pig_land_car.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */; };
+		A58BA456171326AF00394BB4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A58BA454171326AF00394BB4 /* Icon.png */; };
+		A58BA457171326AF00394BB4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58BA455171326AF00394BB4 /* Icon@2x.png */; };
+		A58BA45E17145B2000394BB4 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA45D17145B1F00394BB4 /* Player.mm */; };
+		A58BA46117145B4D00394BB4 /* GameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA46017145B4C00394BB4 /* GameObject.mm */; };
+		A58BA46617145EE900394BB4 /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = A58BA45C17145B1F00394BB4 /* Player.h */; };
+		A58BA46717145F0A00394BB4 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = A5E3D35A169C3F3D00CDC5DA /* Constants.h */; };
+		A58BA46A171472C400394BB4 /* ContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA469171472C300394BB4 /* ContactListener.mm */; };
+		A58BA47F1716DC6F00394BB4 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA47E1716DC6F00394BB4 /* MenuLayer.mm */; };
+		A58BA4841716E96500394BB4 /* LandLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA4831716E96500394BB4 /* LandLayer.mm */; };
+		A58F7AC9171DB4BE006096E5 /* pig_land_car2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */; };
+		A58F7ACA171DB4BE006096E5 /* pig_land_car2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */; };
+		A58F7ACC171DB4CF006096E5 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58F7ACB171DB4CF006096E5 /* pig-run.plist */; };
 		A5D953D616F869BF001C9934 /* pigrun-sun02.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D953D516F869BF001C9934 /* pigrun-sun02.png */; };
 		A5DC82B416B0510A004A00DB /* pipeline2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DC82B016B0510A004A00DB /* pipeline2-1.png */; };
 		A5DC82B516B0510A004A00DB /* pipeline2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DC82B116B0510A004A00DB /* pipeline2-2.png */; };
@@ -32,8 +45,6 @@
 		A5E3D0281698837800CDC5DA /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D0271698837800CDC5DA /* Icon-Small-50.png */; };
 		A5E3D02A1698837800CDC5DA /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D0291698837800CDC5DA /* Icon-Small.png */; };
 		A5E3D02C1698837800CDC5DA /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D02B1698837800CDC5DA /* Icon-Small@2x.png */; };
-		A5E3D02E1698837800CDC5DA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D02D1698837800CDC5DA /* Icon.png */; };
-		A5E3D0301698837800CDC5DA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D02F1698837800CDC5DA /* Icon@2x.png */; };
 		A5E3D0331698837800CDC5DA /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D0321698837800CDC5DA /* iTunesArtwork */; };
 		A5E3D0381698837800CDC5DA /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E3D0371698837800CDC5DA /* CCAction.m */; };
 		A5E3D03B1698837800CDC5DA /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E3D03A1698837800CDC5DA /* CCActionCamera.m */; };
@@ -272,10 +283,7 @@
 		A5E3D3441698845100CDC5DA /* grass_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D32E1698845100CDC5DA /* grass_default.png */; };
 		A5E3D3451698845100CDC5DA /* ball_top_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D32F1698845100CDC5DA /* ball_top_default.plist */; };
 		A5E3D3461698845100CDC5DA /* ball_top_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3301698845100CDC5DA /* ball_top_default.png */; };
-		A5E3D34A1698846300CDC5DA /* Icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3471698846300CDC5DA /* Icon1.png */; };
 		A5E3D34B1698846300CDC5DA /* overback.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3481698846300CDC5DA /* overback.png */; };
-		A5E3D34C1698846300CDC5DA /* Icon1@.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3491698846300CDC5DA /* Icon1@.png */; };
-		A5E3D34F169884D800CDC5DA /* Icon1@.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D34E169884D800CDC5DA /* Icon1@.png */; };
 		A5E3D3511699CFD200CDC5DA /* DayDream.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3501699CFD200CDC5DA /* DayDream.ttf */; };
 		A5E3D35C169C3F3D00CDC5DA /* Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5E3D35B169C3F3D00CDC5DA /* Constants.mm */; };
 		A5E3D363169EEBBE00CDC5DA /* waterbackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D362169EEBBE00CDC5DA /* waterbackground1.png */; };
@@ -295,9 +303,6 @@
 		A5E3D388169EF97300CDC5DA /* maincloud.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D386169EF97300CDC5DA /* maincloud.pvr */; };
 		A5E3D38C169EFCB100CDC5DA /* mainlist5.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D38B169EFCB100CDC5DA /* mainlist5.png */; };
 		A5E3D395169F13B700CDC5DA /* GameScenerun.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5E3D394169F13B500CDC5DA /* GameScenerun.mm */; };
-		A5E3D39F169F181900CDC5DA /* pigrun-cloud01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D397169F181900CDC5DA /* pigrun-cloud01.png */; };
-		A5E3D3A1169F181900CDC5DA /* pigrun-land02.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D399169F181900CDC5DA /* pigrun-land02.png */; };
-		A5E3D3A2169F181900CDC5DA /* pigrun-land03.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D39A169F181900CDC5DA /* pigrun-land03.png */; };
 		A5E3D3A9169F1CBA00CDC5DA /* pig-sky.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3A7169F1CBA00CDC5DA /* pig-sky.plist */; };
 		A5E3D3AA169F1CBA00CDC5DA /* pig-sky.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3A8169F1CBA00CDC5DA /* pig-sky.pvr */; };
 		A5E3D3B916A1DCF600CDC5DA /* animal4.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3B516A1DCF600CDC5DA /* animal4.plist */; };
@@ -309,9 +314,6 @@
 		A5E3D3C716A71C6100CDC5DA /* animal6.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3C516A71C6000CDC5DA /* animal6.plist */; };
 		A5E3D3C816A71C6100CDC5DA /* animal6.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3C616A71C6100CDC5DA /* animal6.pvr */; };
 		A5E3D3CC16A7227000CDC5DA /* animal1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3CB16A7227000CDC5DA /* animal1-2.plist */; };
-		A5E3D3D016A7259400CDC5DA /* pigrun-land04.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3CD16A7259300CDC5DA /* pigrun-land04.png */; };
-		A5E3D3D116A7259400CDC5DA /* pigrun-land061.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3CE16A7259400CDC5DA /* pigrun-land061.png */; };
-		A5E3D3D216A7259400CDC5DA /* pigrun-land051.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3CF16A7259400CDC5DA /* pigrun-land051.png */; };
 		A5E3D3D516AC22BF00CDC5DA /* switch3_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3D316AC22BC00CDC5DA /* switch3_default.plist */; };
 		A5E3D3D616AC22BF00CDC5DA /* switch3_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3D416AC22BD00CDC5DA /* switch3_default.png */; };
 		A5E3D3D816AC26F100CDC5DA /* pipeline_fishbowl.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E3D3D716AC26F100CDC5DA /* pipeline_fishbowl.png */; };
@@ -330,9 +332,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A587F1F016CA04B30099247B /* pigrun-land01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land01.png"; sourceTree = "<group>"; };
 		A587F1F116CA04B30099247B /* pigrun-pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-pig.png"; sourceTree = "<group>"; };
 		A587F1F216CA04B30099247B /* pigrun-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-sign.png"; sourceTree = "<group>"; };
+		A58BA2471712FE4C00394BB4 /* pig_land_car.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car.plist; sourceTree = "<group>"; };
+		A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car.pvr; sourceTree = "<group>"; };
+		A58BA454171326AF00394BB4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A58BA455171326AF00394BB4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A58BA45C17145B1F00394BB4 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		A58BA45D17145B1F00394BB4 /* Player.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Player.mm; sourceTree = "<group>"; };
+		A58BA45F17145B4C00394BB4 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		A58BA46017145B4C00394BB4 /* GameObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameObject.mm; sourceTree = "<group>"; };
+		A58BA468171472C300394BB4 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener.h; sourceTree = "<group>"; };
+		A58BA469171472C300394BB4 /* ContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContactListener.mm; sourceTree = "<group>"; };
+		A58BA47D1716DC6E00394BB4 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		A58BA47E1716DC6F00394BB4 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
+		A58BA4821716E96500394BB4 /* LandLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandLayer.h; sourceTree = "<group>"; };
+		A58BA4831716E96500394BB4 /* LandLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LandLayer.mm; sourceTree = "<group>"; };
+		A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car2.plist; sourceTree = "<group>"; };
+		A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car2.pvr; sourceTree = "<group>"; };
+		A58F7ACB171DB4CF006096E5 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
 		A5D953D516F869BF001C9934 /* pigrun-sun02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-sun02.png"; sourceTree = "<group>"; };
 		A5DC82B016B0510A004A00DB /* pipeline2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pipeline2-1.png"; sourceTree = "<group>"; };
 		A5DC82B116B0510A004A00DB /* pipeline2-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pipeline2-2.png"; sourceTree = "<group>"; };
@@ -357,8 +375,6 @@
 		A5E3D0271698837800CDC5DA /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		A5E3D0291698837800CDC5DA /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		A5E3D02B1698837800CDC5DA /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
-		A5E3D02D1698837800CDC5DA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		A5E3D02F1698837800CDC5DA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		A5E3D0311698837800CDC5DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		A5E3D0321698837800CDC5DA /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		A5E3D0361698837800CDC5DA /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = libs/cocos2d/CCAction.h; sourceTree = "<group>"; };
@@ -792,10 +808,7 @@
 		A5E3D32E1698845100CDC5DA /* grass_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_default.png; sourceTree = "<group>"; };
 		A5E3D32F1698845100CDC5DA /* ball_top_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ball_top_default.plist; sourceTree = "<group>"; };
 		A5E3D3301698845100CDC5DA /* ball_top_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_top_default.png; sourceTree = "<group>"; };
-		A5E3D3471698846300CDC5DA /* Icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon1.png; sourceTree = "<group>"; };
 		A5E3D3481698846300CDC5DA /* overback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overback.png; sourceTree = "<group>"; };
-		A5E3D3491698846300CDC5DA /* Icon1@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon1@.png"; sourceTree = "<group>"; };
-		A5E3D34E169884D800CDC5DA /* Icon1@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon1@.png"; sourceTree = "<group>"; };
 		A5E3D3501699CFD200CDC5DA /* DayDream.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DayDream.ttf; sourceTree = "<group>"; };
 		A5E3D35A169C3F3D00CDC5DA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A5E3D35B169C3F3D00CDC5DA /* Constants.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Constants.mm; sourceTree = "<group>"; };
@@ -817,9 +830,6 @@
 		A5E3D38B169EFCB100CDC5DA /* mainlist5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainlist5.png; sourceTree = "<group>"; };
 		A5E3D393169F13B400CDC5DA /* GameScenerun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScenerun.h; sourceTree = "<group>"; };
 		A5E3D394169F13B500CDC5DA /* GameScenerun.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScenerun.mm; sourceTree = "<group>"; };
-		A5E3D397169F181900CDC5DA /* pigrun-cloud01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-cloud01.png"; sourceTree = "<group>"; };
-		A5E3D399169F181900CDC5DA /* pigrun-land02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land02.png"; sourceTree = "<group>"; };
-		A5E3D39A169F181900CDC5DA /* pigrun-land03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land03.png"; sourceTree = "<group>"; };
 		A5E3D3A7169F1CBA00CDC5DA /* pig-sky.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-sky.plist"; sourceTree = "<group>"; };
 		A5E3D3A8169F1CBA00CDC5DA /* pig-sky.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pig-sky.pvr"; sourceTree = "<group>"; };
 		A5E3D3B516A1DCF600CDC5DA /* animal4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = animal4.plist; sourceTree = "<group>"; };
@@ -831,9 +841,6 @@
 		A5E3D3C516A71C6000CDC5DA /* animal6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = animal6.plist; sourceTree = "<group>"; };
 		A5E3D3C616A71C6100CDC5DA /* animal6.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = animal6.pvr; sourceTree = "<group>"; };
 		A5E3D3CB16A7227000CDC5DA /* animal1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "animal1-2.plist"; sourceTree = "<group>"; };
-		A5E3D3CD16A7259300CDC5DA /* pigrun-land04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land04.png"; sourceTree = "<group>"; };
-		A5E3D3CE16A7259400CDC5DA /* pigrun-land061.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land061.png"; sourceTree = "<group>"; };
-		A5E3D3CF16A7259400CDC5DA /* pigrun-land051.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-land051.png"; sourceTree = "<group>"; };
 		A5E3D3D316AC22BC00CDC5DA /* switch3_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = switch3_default.plist; sourceTree = "<group>"; };
 		A5E3D3D416AC22BD00CDC5DA /* switch3_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch3_default.png; sourceTree = "<group>"; };
 		A5E3D3D716AC26F100CDC5DA /* pipeline_fishbowl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipeline_fishbowl.png; sourceTree = "<group>"; };
@@ -871,10 +878,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A58BA47B1716DC0300394BB4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A5E3D35A169C3F3D00CDC5DA /* Constants.h */,
+				A5E3D35B169C3F3D00CDC5DA /* Constants.mm */,
+				A58BA468171472C300394BB4 /* ContactListener.h */,
+				A58BA469171472C300394BB4 /* ContactListener.mm */,
+				A5E3D2441698839800CDC5DA /* GB2ShapeCache.h */,
+				A5E3D2451698839800CDC5DA /* GB2ShapeCache.mm */,
+				A5E3D2481698839800CDC5DA /* GLES-Render.h */,
+				A5E3D2491698839800CDC5DA /* GLES-Render.mm */,
+				A5E3D2461698839800CDC5DA /* MyContactListener.h */,
+				A5E3D2471698839800CDC5DA /* MyContactListener.mm */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		A58BA4801716E5E600394BB4 /* GameRun */ = {
+			isa = PBXGroup;
+			children = (
+				A5E3D393169F13B400CDC5DA /* GameScenerun.h */,
+				A5E3D394169F13B500CDC5DA /* GameScenerun.mm */,
+				A58BA4821716E96500394BB4 /* LandLayer.h */,
+				A58BA4831716E96500394BB4 /* LandLayer.mm */,
+				A58BA47D1716DC6E00394BB4 /* MenuLayer.h */,
+				A58BA47E1716DC6F00394BB4 /* MenuLayer.mm */,
+				A58BA45F17145B4C00394BB4 /* GameObject.h */,
+				A58BA46017145B4C00394BB4 /* GameObject.mm */,
+				A58BA45C17145B1F00394BB4 /* Player.h */,
+				A58BA45D17145B1F00394BB4 /* Player.mm */,
+			);
+			name = GameRun;
+			sourceTree = "<group>";
+		};
+		A58BA4811716E60100394BB4 /* Open */ = {
+			isa = PBXGroup;
+			children = (
+				A5E3D2501698839800CDC5DA /* OpeningLayer.h */,
+				A5E3D2511698839800CDC5DA /* OpeningLayer.mm */,
+				A5E3D2521698839800CDC5DA /* OpeningStart.h */,
+				A5E3D2531698839800CDC5DA /* OpeningStart.mm */,
+			);
+			name = Open;
+			sourceTree = "<group>";
+		};
 		A5E3CFF81698837800CDC5DA = {
 			isa = PBXGroup;
 			children = (
-				A5E3D34E169884D800CDC5DA /* Icon1@.png */,
 				A5E3D0191698837800CDC5DA /* Happy Zoo */,
 				A5E3D0061698837800CDC5DA /* Frameworks */,
 				A5E3D0041698837800CDC5DA /* Products */,
@@ -918,28 +969,17 @@
 				A5E3D23F1698839800CDC5DA /* GameScenepie.mm */,
 				A5E3D2421698839800CDC5DA /* GameSceneball.h */,
 				A5E3D2431698839800CDC5DA /* GameSceneball.mm */,
-				A5E3D393169F13B400CDC5DA /* GameScenerun.h */,
-				A5E3D394169F13B500CDC5DA /* GameScenerun.mm */,
-				A5E3D2441698839800CDC5DA /* GB2ShapeCache.h */,
-				A5E3D2451698839800CDC5DA /* GB2ShapeCache.mm */,
-				A5E3D2461698839800CDC5DA /* MyContactListener.h */,
-				A5E3D2471698839800CDC5DA /* MyContactListener.mm */,
-				A5E3D2481698839800CDC5DA /* GLES-Render.h */,
-				A5E3D2491698839800CDC5DA /* GLES-Render.mm */,
-				A5E3D35A169C3F3D00CDC5DA /* Constants.h */,
-				A5E3D35B169C3F3D00CDC5DA /* Constants.mm */,
-				A5E3D24A1698839800CDC5DA /* LoadingScene.h */,
-				A5E3D24B1698839800CDC5DA /* LoadingScene.mm */,
+				A58BA4801716E5E600394BB4 /* GameRun */,
 				A5E3D24C1698839800CDC5DA /* FirstScene.h */,
 				A5E3D24D1698839800CDC5DA /* FirstScene.mm */,
 				A5E3D24E1698839800CDC5DA /* FirstsceList.h */,
 				A5E3D24F1698839800CDC5DA /* FirstsceList.mm */,
-				A5E3D2501698839800CDC5DA /* OpeningLayer.h */,
-				A5E3D2511698839800CDC5DA /* OpeningLayer.mm */,
-				A5E3D2521698839800CDC5DA /* OpeningStart.h */,
-				A5E3D2531698839800CDC5DA /* OpeningStart.mm */,
+				A58BA4811716E60100394BB4 /* Open */,
 				A5E3D2541698839800CDC5DA /* GamingMain.h */,
 				A5E3D2551698839800CDC5DA /* GamingMain.mm */,
+				A5E3D24A1698839800CDC5DA /* LoadingScene.h */,
+				A5E3D24B1698839800CDC5DA /* LoadingScene.mm */,
+				A58BA47B1716DC0300394BB4 /* lib */,
 				A5E3D01A1698837800CDC5DA /* Resources */,
 				A5E3D0341698837800CDC5DA /* libs */,
 				A5E3D2201698837A00CDC5DA /* Supporting Files */,
@@ -962,15 +1002,13 @@
 				A5E3D396169F180800CDC5DA /* pigrun */,
 				A5E3D01D1698837800CDC5DA /* Default-Landscape~ipad.png */,
 				A5E3D01F1698837800CDC5DA /* fps_images.png */,
-				A5E3D3471698846300CDC5DA /* Icon1.png */,
 				A5E3D3481698846300CDC5DA /* overback.png */,
-				A5E3D3491698846300CDC5DA /* Icon1@.png */,
+				A58BA454171326AF00394BB4 /* Icon.png */,
+				A58BA455171326AF00394BB4 /* Icon@2x.png */,
 				A5E3D0251698837800CDC5DA /* Icon-72.png */,
 				A5E3D0271698837800CDC5DA /* Icon-Small-50.png */,
 				A5E3D0291698837800CDC5DA /* Icon-Small.png */,
 				A5E3D02B1698837800CDC5DA /* Icon-Small@2x.png */,
-				A5E3D02D1698837800CDC5DA /* Icon.png */,
-				A5E3D02F1698837800CDC5DA /* Icon@2x.png */,
 				A5E3D0311698837800CDC5DA /* Info.plist */,
 				A5E3D0321698837800CDC5DA /* iTunesArtwork */,
 				A5E3D2331698837A00CDC5DA /* blocks.png */,
@@ -1638,15 +1676,13 @@
 			children = (
 				A5E3D3A7169F1CBA00CDC5DA /* pig-sky.plist */,
 				A5E3D3A8169F1CBA00CDC5DA /* pig-sky.pvr */,
+				A58BA2471712FE4C00394BB4 /* pig_land_car.plist */,
+				A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */,
+				A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */,
+				A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */,
+				A58F7ACB171DB4CF006096E5 /* pig-run.plist */,
 				A587F1F116CA04B30099247B /* pigrun-pig.png */,
 				A587F1F216CA04B30099247B /* pigrun-sign.png */,
-				A5E3D397169F181900CDC5DA /* pigrun-cloud01.png */,
-				A587F1F016CA04B30099247B /* pigrun-land01.png */,
-				A5E3D399169F181900CDC5DA /* pigrun-land02.png */,
-				A5E3D39A169F181900CDC5DA /* pigrun-land03.png */,
-				A5E3D3CD16A7259300CDC5DA /* pigrun-land04.png */,
-				A5E3D3CF16A7259400CDC5DA /* pigrun-land051.png */,
-				A5E3D3CE16A7259400CDC5DA /* pigrun-land061.png */,
 				A5D953D516F869BF001C9934 /* pigrun-sun02.png */,
 			);
 			name = pigrun;
@@ -1711,8 +1747,6 @@
 				A5E3D0281698837800CDC5DA /* Icon-Small-50.png in Resources */,
 				A5E3D02A1698837800CDC5DA /* Icon-Small.png in Resources */,
 				A5E3D02C1698837800CDC5DA /* Icon-Small@2x.png in Resources */,
-				A5E3D02E1698837800CDC5DA /* Icon.png in Resources */,
-				A5E3D0301698837800CDC5DA /* Icon@2x.png in Resources */,
 				A5E3D0331698837800CDC5DA /* iTunesArtwork in Resources */,
 				A5E3D1711698837A00CDC5DA /* ChangeLog in Resources */,
 				A5E3D2341698837A00CDC5DA /* blocks.png in Resources */,
@@ -1791,10 +1825,7 @@
 				A5E3D3441698845100CDC5DA /* grass_default.png in Resources */,
 				A5E3D3451698845100CDC5DA /* ball_top_default.plist in Resources */,
 				A5E3D3461698845100CDC5DA /* ball_top_default.png in Resources */,
-				A5E3D34A1698846300CDC5DA /* Icon1.png in Resources */,
 				A5E3D34B1698846300CDC5DA /* overback.png in Resources */,
-				A5E3D34C1698846300CDC5DA /* Icon1@.png in Resources */,
-				A5E3D34F169884D800CDC5DA /* Icon1@.png in Resources */,
 				A5E3D3511699CFD200CDC5DA /* DayDream.ttf in Resources */,
 				A5E3D363169EEBBE00CDC5DA /* waterbackground1.png in Resources */,
 				A5E3D36B169EECFF00CDC5DA /* pipeline1-1.png in Resources */,
@@ -1812,9 +1843,6 @@
 				A5E3D387169EF97300CDC5DA /* maincloud.plist in Resources */,
 				A5E3D388169EF97300CDC5DA /* maincloud.pvr in Resources */,
 				A5E3D38C169EFCB100CDC5DA /* mainlist5.png in Resources */,
-				A5E3D39F169F181900CDC5DA /* pigrun-cloud01.png in Resources */,
-				A5E3D3A1169F181900CDC5DA /* pigrun-land02.png in Resources */,
-				A5E3D3A2169F181900CDC5DA /* pigrun-land03.png in Resources */,
 				A5E3D3A9169F1CBA00CDC5DA /* pig-sky.plist in Resources */,
 				A5E3D3AA169F1CBA00CDC5DA /* pig-sky.pvr in Resources */,
 				A5E3D3B916A1DCF600CDC5DA /* animal4.plist in Resources */,
@@ -1826,9 +1854,6 @@
 				A5E3D3C716A71C6100CDC5DA /* animal6.plist in Resources */,
 				A5E3D3C816A71C6100CDC5DA /* animal6.pvr in Resources */,
 				A5E3D3CC16A7227000CDC5DA /* animal1-2.plist in Resources */,
-				A5E3D3D016A7259400CDC5DA /* pigrun-land04.png in Resources */,
-				A5E3D3D116A7259400CDC5DA /* pigrun-land061.png in Resources */,
-				A5E3D3D216A7259400CDC5DA /* pigrun-land051.png in Resources */,
 				A5E3D3D516AC22BF00CDC5DA /* switch3_default.plist in Resources */,
 				A5E3D3D616AC22BF00CDC5DA /* switch3_default.png in Resources */,
 				A5E3D3D816AC26F100CDC5DA /* pipeline_fishbowl.png in Resources */,
@@ -1848,10 +1873,16 @@
 				A5DC82B516B0510A004A00DB /* pipeline2-2.png in Resources */,
 				A5DC82B616B0510A004A00DB /* pipeline2-3.png in Resources */,
 				A5DC82B716B0510A004A00DB /* pipeline2-4.png in Resources */,
-				A587F1F316CA04B30099247B /* pigrun-land01.png in Resources */,
 				A587F1F416CA04B30099247B /* pigrun-pig.png in Resources */,
 				A587F1F516CA04B30099247B /* pigrun-sign.png in Resources */,
 				A5D953D616F869BF001C9934 /* pigrun-sun02.png in Resources */,
+				A58BA24B1712FE4C00394BB4 /* pig_land_car.plist in Resources */,
+				A58BA24C1712FE4C00394BB4 /* pig_land_car.pvr in Resources */,
+				A58BA456171326AF00394BB4 /* Icon.png in Resources */,
+				A58BA457171326AF00394BB4 /* Icon@2x.png in Resources */,
+				A58F7AC9171DB4BE006096E5 /* pig_land_car2.plist in Resources */,
+				A58F7ACA171DB4BE006096E5 /* pig_land_car2.pvr in Resources */,
+				A58F7ACC171DB4CF006096E5 /* pig-run.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1878,6 +1909,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58BA46717145F0A00394BB4 /* Constants.h in Sources */,
+				A58BA46617145EE900394BB4 /* Player.h in Sources */,
 				A5E3D0381698837800CDC5DA /* CCAction.m in Sources */,
 				A5E3D03B1698837800CDC5DA /* CCActionCamera.m in Sources */,
 				A5E3D03E1698837800CDC5DA /* CCActionCatmullRom.m in Sources */,
@@ -2040,6 +2073,11 @@
 				A5E3D2631698839800CDC5DA /* GamingMain.mm in Sources */,
 				A5E3D35C169C3F3D00CDC5DA /* Constants.mm in Sources */,
 				A5E3D395169F13B700CDC5DA /* GameScenerun.mm in Sources */,
+				A58BA45E17145B2000394BB4 /* Player.mm in Sources */,
+				A58BA46117145B4D00394BB4 /* GameObject.mm in Sources */,
+				A58BA46A171472C400394BB4 /* ContactListener.mm in Sources */,
+				A58BA47F1716DC6F00394BB4 /* MenuLayer.mm in Sources */,
+				A58BA4841716E96500394BB4 /* LandLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -121,7 +121,7 @@ static FirstScene* multiLayerSceneInstance;
         
         // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
 
-        CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d /15      0 / 5",gamestarscore] fontName:@"DayDream" fontSize:67];
+        CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d /15      0 / 5",1] fontName:@"DayDream" fontSize:67];
         label1.position =  ccp(size.width*0.8, size.height*0.92);
         [self addChild: label1 z:20];
         

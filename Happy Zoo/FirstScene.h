@@ -44,7 +44,7 @@ typedef enum
 -(void) gomenu1;
 -(void) gomenu2;
 
-extern int gamestarscore;
+//extern int gamestarscore;
 
 
 

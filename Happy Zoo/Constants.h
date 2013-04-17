@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-int gamestarscore;
 
+
+
+
+//
 @interface Constants : NSObject
 
 
