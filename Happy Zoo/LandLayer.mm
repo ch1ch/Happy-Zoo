@@ -33,6 +33,7 @@
         [[GB2ShapeCache sharedShapeCache] addShapesWithFile:@"pig-run.plist"];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car.plist"];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car2.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car3.plist"];
         
         
         [self setupPhysicsWorld];
@@ -59,21 +60,27 @@
         groundBox.Set(b2Vec2(0,screenSize.height*2/PTM_RATIO), b2Vec2(0,screenSize.height*(-1)/PTM_RATIO));
         groundBody->CreateFixture(&groundBox,0);
         
-   
+        [self drawmonster];
         [self drawpig];
         [self drawland1];
         [self drawland2];
+        [self drawmons1];
         [self drawland6];
+        [self drawmons2];
         [self drawland7];
         [self drawland10];
         [self drawland4];
+        [self drawmons3];
         [self drawland3];
         [self drawland8_1];
         [self drawland8_2];
         [self drawland6_2];
+        [self drawmons4];
         [self drawland5];
+        //[self drawmons5];
         [self drawland9];
         [self drawland3_2];
+        [self drawmons6];
         [self drawland11];[self drawland12];[self drawland13];
         [self drawland6_3];
         [self drawland14];
@@ -113,11 +120,13 @@
     _world = new b2World(gravity);
     
     /*
+
     _debugDraw = new GLESDebugDraw(PTM_RATIO);
     _world->SetDebugDraw(_debugDraw);
     uint32 flags = 0;
     flags += b2Draw::   e_shapeBit;
     _debugDraw->SetFlags(flags);
+
     */
     
     _contactListener =new MyContactListener();
@@ -128,34 +137,96 @@
 - (void)tick:(ccTime) dt {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    //世界物体位置更新
     _world->Step(dt, 8, 3);
-    for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext()) {
-        if (b->GetUserData() != NULL) {
+    for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
+    {
+        if (b->GetUserData() != NULL)
+        {
             CCSprite *ballData = (CCSprite *)b->GetUserData();
             
-            if (ballData.tag!=109) {
-                
-            
-            
-                if (ballData.tag ==101) {
-
-                
+            if (ballData.tag!=109)
+            {
+               if (ballData.tag ==101)
+               {
                     ballData.position =CGPointMake(b->GetPosition().x*PTM_RATIO, b->GetPosition().y*PTM_RATIO);
                     
-                }else{
+               }
+               else
+               {
                     ballData.position = ccp(b->GetPosition().x * PTM_RATIO,
                                         b->GetPosition().y * PTM_RATIO);
                 }
                 ballData.rotation =-1* CC_RADIANS_TO_DEGREES(b->GetAngle());
-            }else{
-                b->SetTransform(b2Vec2(land9.position.x/PTM_RATIO,land9.position.y/PTM_RATIO), 0);
             }
-
+            else if(ballData.tag==301){
+                b->SetTransform(b2Vec2(monster1.position.x/PTM_RATIO,monster1.position.y/PTM_RATIO), 0);
+            }else
+            {
+                b->SetTransform(b2Vec2(land9.position.x/PTM_RATIO,land9.position.y/PTM_RATIO), 0);
         }
+        //获得汽车速度，保证最低速度
+        if (ballData.tag==100)
+        {
+            NSLog(@"sudu%f",b->GetLinearVelocity().x);
+            if (self.position.x<screenSize.width*(-1.0))
+            {
+                if (self.position.x>screenSize.width*(-2.5))
+                {
+                    NSLog(@"111111");
+                    if (b->GetLinearVelocity().x<5)
+                    {
+                        b2Vec2 tempvel=b->GetLinearVelocity();
+                        tempvel.x=5;
+                        b->SetLinearVelocity(tempvel);
+                    }
+                    if (b->GetLinearVelocity().x>8)
+                    {
+                        b2Vec2 tempvel=b->GetLinearVelocity();
+                        tempvel.x=8;
+                        b->SetLinearVelocity(tempvel);
+                    }
+                }else
+                {
+                     NSLog(@"2222222");
+                    if (b->GetLinearVelocity().x<7)
+                    {
+                        b2Vec2 tempvel=b->GetLinearVelocity();
+                        tempvel.x=7;
+                        b->SetLinearVelocity(tempvel);
+                    }
+                    if (b->GetLinearVelocity().x>10)
+                    {
+                        b2Vec2 tempvel=b->GetLinearVelocity();
+                        tempvel.x=10;
+                        b->SetLinearVelocity(tempvel);
+                    }
+
+                }
+            }
+            float angletemp=b->GetAngle();
+            if (angletemp>0.7) {
+                
+                b->SetTransform(b->GetPosition(), 0.7);
+                }
+            if (angletemp<-0.7) {
+                
+                b->SetTransform(b->GetPosition(), -0.7);
+            }
+            
+            
+                
+                
+        }
+            
+
+    }
+        
+       
         
     }
     
-    
+    //获取初始位置
     if (oldpigpostion.x==0) {
         oldpigpostion.x=pig.position.x;
         oldpigpostion.y=pig.position.y;
@@ -165,11 +236,7 @@
     newpigpostion.x=pig.position.x;
     newpigpostion.y=pig.position.y;
     
-   // NSLog(@"self pos x=%f,y=%f.",self.position.x,self.position.y);
-    
-    b2Vec2 lineve;
-    //lineve=[];
-    
+    //屏幕根据猪位置变化，移动
     CGPoint newpos1;
     
     if (self.position.x<screenSize.width*(-0.5)) {
@@ -182,17 +249,64 @@
     oldpigpostion=newpigpostion;
     
     
-    if (pigjump==0) {
-       [self setPosition:newpos1]; 
-    }
-    
+
+       [self setPosition:newpos1];
+    //那个上下移动的特殊板块
     if (pos9.y==0) {
         pos9=land9.position;
     }
     
-    if (self.position.x<screenSize.width*(-9.2)) {
+    if (self.position.x<screenSize.width*(-9.6)) {
         [self runobsMoveSequencey:land9];
     }
+    
+    //确认是否车和板块接触，防止二段跳
+    pigjumping=1;
+    std::vector<b2Body *>toDestroy;
+    std::vector<MyContact>::iterator pos;
+    for(pos = _contactListener->_contacts.begin(); pos != _contactListener->_contacts.end(); ++pos)
+    {
+        MyContact contact = *pos;
+        
+        // Get the box2d bodies for each object
+        b2Body *bodyA = contact.fixtureA->GetBody();
+        b2Body *bodyB = contact.fixtureB->GetBody();
+        
+        
+        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
+        {
+            CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
+            CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
+            //NSLog(@"%d  and   %d   zhuangjila~~",spriteA.tag,spriteB.tag);
+            if(spriteA.tag==100 ||spriteB.tag==100)
+            {
+                //NSLog(@"%d  and   %d   zhuangjila~~",spriteA.tag,spriteB.tag);
+                pigjumping=0;
+                    
+            }else{
+                pigjumping=1;
+            }
+              
+        }
+    }
+    
+    //刺猬移动
+    CGPoint montemp=monster1.position;
+    if (montemp.x>screenSize.width*2.3)
+    {
+        montemp.x-=10;
+    //    NSLog(@"---%f",montemp.x);
+    }else if(montemp.x<screenSize.width*2.0)
+    {
+        montemp.x+=10;
+    //    NSLog(@"++++++%f",montemp.x);
+    }else{
+        [self runobsMoveSequencex:monster1];
+   //     NSLog(@"====%f",montemp.x);
+    }
+    //monster1.position=montemp;
+    
+
   
 }
 
@@ -200,7 +314,7 @@
 -(void)GameOver:(ccTime) dt {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
    // NSLog(@"self pos x=%f,y=%f.",self.position.x,self.position.y);
-    if (self.position.x<screenSize.width*(-14.7)) {
+    if (self.position.x<screenSize.width*(-14.5)) {
               NSLog(@" you win!");
         [self drawgameover];
         
@@ -213,7 +327,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
 
     label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"You Win! "] fontName:@"Marker Felt" fontSize:64];
-    label1.position =  ccp(screenSize.width*15.3 ,screenSize.height*(-0.5) );
+    label1.position =  ccp(screenSize.width*15.1 ,screenSize.height*(-0.5) );
     [label1 setString:[NSString stringWithFormat:@"Game Win!"]];
     [self addChild: label1];
     [[CCDirector sharedDirector] pause];
@@ -235,6 +349,33 @@
 }
 
 
+-(void)drawmonster{
+    //起始鸭子
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    CCSpriteBatchNode *decorate1=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate1.png"];
+    [decorate1 setPosition:ccp(screenSize.width*0.13,screenSize.height*0.75)];
+    [self addChild:decorate1 z:12 tag:200];
+    
+    //天上花
+    CCSpriteBatchNode *decorate2=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate2.png"];
+    [decorate2 setPosition:ccp(screenSize.width*2.1,screenSize.height*(-0.3))];
+    [self addChild:decorate2 z:12 tag:200];
+    
+    //结局
+    CCSpriteBatchNode *decorate11=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate11.png"];
+    [decorate11 setPosition:ccp(screenSize.width*15.27,screenSize.height*(-0.41))];
+    [self addChild:decorate11 z:12 tag:200];
+    
+    CCSpriteBatchNode *decorate12=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate12.png"];
+    [decorate12 setPosition:ccp(screenSize.width*15.37,screenSize.height*(-0.62))];
+    [self addChild:decorate12 z:9 tag:200];
+
+    
+    
+    
+}
+
+
 
 
 - (void)drawpig {
@@ -243,7 +384,7 @@
     
     //pig = [CCSprite spriteWithSpriteFrameName:@"pigrun-car01.png"];
     pig =[Player1 spriteWithSpriteFrameName:@"pigrun-car01.png"];
-    [pig setPosition:ccp(screenSize.width*0.02,screenSize.height*0.67)];
+    [pig setPosition:ccp(screenSize.width*0.04,screenSize.height*0.67)];
     [self addChild:pig z:15 tag:100];
     
     
@@ -285,7 +426,7 @@
     
     
     land1 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land01.png"];
-    [land1 setPosition:ccp(screenSize.width*(-0.1) ,screenSize.height*(-1.0))];
+    [land1 setPosition:ccp(screenSize.width*(-0.01) ,screenSize.height*(-1.0))];
     [self addChild:land1 z:10 tag:101];
    
  
@@ -311,7 +452,7 @@
     
     
     land2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land02.png"];
-    [land2 setPosition:ccp(screenSize.width*1.78,screenSize.height*(-1.0))];
+    [land2 setPosition:ccp(screenSize.width*1.92,screenSize.height*(-1.0))];
     [self addChild:land2 z:10 tag:102];
 
     
@@ -331,12 +472,34 @@
     
 }
 
+- (void)drawmons1 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+
+    monster1 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster1.png"];
+    [monster1 setPosition:ccp(screenSize.width*2.3,screenSize.height*(-0.83))];
+    [self addChild:monster1 z:12 tag:301];
+ 
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster1.position.x/PTM_RATIO, monster1.position.y/PTM_RATIO);
+    bodyDef.userData = monster1;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster1";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster1 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+
+    
+}
+
 - (void)drawland6 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     
     land6 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land06.png"];
-    [land6 setPosition:ccp(screenSize.width*2.95,screenSize.height*(-1.09))];
+    [land6 setPosition:ccp(screenSize.width*3.05,screenSize.height*(-1.09))];
     [self addChild:land6 z:10 tag:106];
     
     
@@ -356,13 +519,35 @@
     
 }
 
+- (void)drawmons2 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    monster2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster2.png"];
+    [monster2 setPosition:ccp(screenSize.width*3.35,screenSize.height*(-0.75))];
+    [self addChild:monster2 z:12 tag:302];
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster2.position.x/PTM_RATIO, monster2.position.y/PTM_RATIO);
+    bodyDef.userData = monster2;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster2";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster2 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+    
+    
+}
+
 
 - (void)drawland7 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     
     land7 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land07.png"];
-    [land7 setPosition:ccp(screenSize.width*4.1,screenSize.height*(-1.02))];
+    [land7 setPosition:ccp(screenSize.width*4.3,screenSize.height*(-1.02))];
     [self addChild:land7 z:10 tag:107];
     
     
@@ -387,7 +572,7 @@
     
     
     land10 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land10.png"];
-    [land10 setPosition:ccp(screenSize.width*4.96,screenSize.height*(-1.00))];
+    [land10 setPosition:ccp(screenSize.width*5.16,screenSize.height*(-1.00))];
     [self addChild:land10 z:9 tag:110];
     
     
@@ -412,7 +597,7 @@
     
     
     land4 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land04.png"];
-    [land4 setPosition:ccp(screenSize.width*5.5,screenSize.height*(-1.04))];
+    [land4 setPosition:ccp(screenSize.width*5.7,screenSize.height*(-1.04))];
     [self addChild:land4 z:10 tag:104];
     
     
@@ -427,7 +612,27 @@
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land4 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+  
+}
+
+- (void)drawmons3 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    monster3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster3.png"];
+    [monster3 setPosition:ccp(screenSize.width*5.9,screenSize.height*(-0.85))];
+    [self addChild:monster3 z:12 tag:303];
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster3.position.x/PTM_RATIO, monster3.position.y/PTM_RATIO);
+    bodyDef.userData = monster3;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster3";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster3 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
     
     
 }
@@ -437,7 +642,7 @@
     
     
     land3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land03.png"];
-    [land3 setPosition:ccp(screenSize.width*6.65,screenSize.height*(-1.22))];
+    [land3 setPosition:ccp(screenSize.width*6.8,screenSize.height*(-1.22))];
     [self addChild:land3 z:10 tag:103];
     
     
@@ -462,7 +667,7 @@
     
     
     land8_1 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land08.png"];
-    [land8_1 setPosition:ccp(screenSize.width*7.75,screenSize.height*(-0.77))];
+    [land8_1 setPosition:ccp(screenSize.width*7.9,screenSize.height*(-0.77))];
     [self addChild:land8_1 z:10 tag:108];
     
     
@@ -485,7 +690,7 @@
     
     
     land8_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land08.png"];
-    [land8_2 setPosition:ccp(screenSize.width*7.96,screenSize.height*(-0.67))];
+    [land8_2 setPosition:ccp(screenSize.width*8.13,screenSize.height*(-0.67))];
     [self addChild:land8_2 z:10 tag:108];
     
     
@@ -505,13 +710,11 @@
 
 - (void)drawland6_2 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    
-    
-    land6_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land06.png"];
-    [land6_2 setPosition:ccp(screenSize.width*8.09,screenSize.height*(-1.1))];
+  
+    land6_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land17.png"];
+    [land6_2 setPosition:ccp(screenSize.width*8.24,screenSize.height*(-1.1))];
     [self addChild:land6_2 z:10 tag:106];
-    
-    
+  
     b2BodyDef bodyDef;
     
     bodyDef.type = b2_staticBody;
@@ -519,11 +722,31 @@
     bodyDef.userData = land6_2;
     b2Body *body = _world->CreateBody(&bodyDef);
     
-    NSString *name = @"pigrun-land06";
+    NSString *name = @"pigrun-land17";
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land6_2 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+   
+}
+
+- (void)drawmons4 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    monster4 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster4.png"];
+    [monster4 setPosition:ccp(screenSize.width*8.5,screenSize.height*(-0.6))];
+    [self addChild:monster4 z:12 tag:303];
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster4.position.x/PTM_RATIO, monster4.position.y/PTM_RATIO);
+    bodyDef.userData = monster4;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster4";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster4 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
     
     
 }
@@ -531,13 +754,11 @@
 
 - (void)drawland5 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    
-    
+   
     land5 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land05.png"];
-    [land5 setPosition:ccp(screenSize.width*9.2,screenSize.height*(-1.1))];
+    [land5 setPosition:ccp(screenSize.width*9.6,screenSize.height*(-1.1))];
     [self addChild:land5 z:10 tag:105];
-    
-    
+  
     b2BodyDef bodyDef;
     
     bodyDef.type = b2_staticBody;
@@ -549,7 +770,27 @@
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land5 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+ 
+}
+
+- (void)drawmons5 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    monster5 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster5.png"];
+    [monster5 setPosition:ccp(screenSize.width*9.8,screenSize.height*(-0.84))];
+    [self addChild:monster5 z:12 tag:305];
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster5.position.x/PTM_RATIO, monster5.position.y/PTM_RATIO);
+    bodyDef.userData = monster5;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster5";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster5 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
     
     
 }
@@ -561,7 +802,7 @@
     
     land9 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land15.png"];
     //[land9 setPosition:ccp(screenSize.width*1.78,screenSize.height*(-0.6))];
-    land9.position = CGPointMake(screenSize.width*10.5,screenSize.height*(-1.05));
+    land9.position = CGPointMake(screenSize.width*10.6,screenSize.height*(-1.05));
     [self addChild:land9 z:10 tag:109];
     
     
@@ -583,10 +824,9 @@
 
 - (void)drawland3_2 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    
-    
+  
     land3_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land03.png"];
-    [land3_2 setPosition:ccp(screenSize.width*11.2,screenSize.height*(-1.0))];
+    [land3_2 setPosition:ccp(screenSize.width*11.45,screenSize.height*(-1.0))];
     [self addChild:land3_2 z:10 tag:103];
     
     
@@ -601,10 +841,31 @@
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land3_2 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+  
+}
+
+- (void)drawmons6 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
+    monster6 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster6.png"];
+    [monster6 setPosition:ccp(screenSize.width*12.25,screenSize.height*(-0.48))];
+    [self addChild:monster6 z:12 tag:306];
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(monster6.position.x/PTM_RATIO, monster6.position.y/PTM_RATIO);
+    bodyDef.userData = monster6;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"pigrun-monster6";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [monster6 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
     
     
 }
+
 
 - (void)drawland11 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -612,7 +873,7 @@
     
     land11 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land11.png"];
     
-    land11.position = CGPointMake(screenSize.width*12.3,screenSize.height*(-1.1));
+    land11.position = CGPointMake(screenSize.width*12.46,screenSize.height*(-1.1));
     [self addChild:land11 z:10 tag:111];
     
     
@@ -638,7 +899,7 @@
     
     land12 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land12.png"];
     
-    land12.position = CGPointMake(screenSize.width*12.6,screenSize.height*(-1.1));
+    land12.position = CGPointMake(screenSize.width*12.76,screenSize.height*(-1.1));
     [self addChild:land12 z:10 tag:112];
     
     
@@ -664,7 +925,7 @@
     
     land13 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land13.png"];
     
-    land13.position = CGPointMake(screenSize.width*12.9,screenSize.height*(-1.1));
+    land13.position = CGPointMake(screenSize.width*13.1,screenSize.height*(-1.1));
     [self addChild:land13 z:10 tag:113];
     
     
@@ -690,8 +951,8 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     
-    land6_3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land06.png"];
-    [land6_3 setPosition:ccp(screenSize.width*13.3,screenSize.height*(-1.05))];
+    land6_3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land17.png"];
+    [land6_3 setPosition:ccp(screenSize.width*13.39,screenSize.height*(-1.05))];
     [self addChild:land6_3 z:10 tag:106];
     
     
@@ -702,7 +963,7 @@
     bodyDef.userData = land6_3;
     b2Body *body = _world->CreateBody(&bodyDef);
     
-    NSString *name = @"pigrun-land06";
+    NSString *name = @"pigrun-land17";
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land6_3 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
@@ -720,7 +981,7 @@
     
     land14 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land14.png"];
     
-    land14.position = CGPointMake(screenSize.width*14.4,screenSize.height*(-1.0));
+    land14.position = CGPointMake(screenSize.width*14.5,screenSize.height*(-1.0));
     [self addChild:land14 z:10 tag:113];
     
     
@@ -740,16 +1001,16 @@
     
 }
 
+
+
 - (void)selectSpriteForTouch:(CGPoint)touchLocation
 {
     
     if (CGRectContainsPoint(pig.boundingBox, touchLocation))
     {
-        pigjump=1;
-        [pig jump];
-        NSLog(@"jump~~~~~~~~~~");
-        //pig.body->SetLinearVelocity(b2Vec2(0,0));
-        pigjump=0;
+
+       // [pig jump];
+
         
     }
     
@@ -759,16 +1020,23 @@
 
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     [self selectSpriteForTouch:touchLocation];
-    //[pig jump];
+    if (self.position.x<screenSize.width*(-0.5))
+    {
+        if (pigjumping==0)
+        {
+             [pig jump];
+        }
+    }
     return TRUE;
 }
 
 -(void) runobsMoveSequencex:(CCSprite*)spider
 {
     
-	CGPoint belowScreenPosition = CGPointMake(spider.position.x-30,spider.position.y);
+	CGPoint belowScreenPosition = CGPointMake(spider.position.x-29,spider.position.y);
     //CCLOG(@" --- %d ---- %f -----", belowScreenPosition.x,belowScreenPosition.y);
 	CCMoveTo* move = [CCMoveTo actionWithDuration:0.1f position:belowScreenPosition];
     
@@ -785,7 +1053,7 @@
 	CGPoint belowScreenPosition = CGPointMake(spider.position.x,spider.position.y+10);
     
     
-    //CCLOG(@" --- %f ---- %f -----", belowScreenPosition.x,belowScreenPosition.y);
+
 	CCMoveTo* move = [CCMoveTo actionWithDuration:0.1f position:belowScreenPosition];
     
 	CCSequence* sequence = [CCSequence actions:move,nil];

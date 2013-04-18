@@ -22,7 +22,9 @@
 		A58BA4841716E96500394BB4 /* LandLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A58BA4831716E96500394BB4 /* LandLayer.mm */; };
 		A58F7AC9171DB4BE006096E5 /* pig_land_car2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */; };
 		A58F7ACA171DB4BE006096E5 /* pig_land_car2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */; };
-		A58F7ACC171DB4CF006096E5 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58F7ACB171DB4CF006096E5 /* pig-run.plist */; };
+		A58F7ADE172030BA006096E5 /* pig_land_car3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58F7ADC172030BA006096E5 /* pig_land_car3.plist */; };
+		A58F7ADF172030BA006096E5 /* pig_land_car3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A58F7ADD172030BA006096E5 /* pig_land_car3.pvr */; };
+		A5BC17BE1720515500B49149 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5BC17BD1720515500B49149 /* pig-run.plist */; };
 		A5D953D616F869BF001C9934 /* pigrun-sun02.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D953D516F869BF001C9934 /* pigrun-sun02.png */; };
 		A5DC82B416B0510A004A00DB /* pipeline2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DC82B016B0510A004A00DB /* pipeline2-1.png */; };
 		A5DC82B516B0510A004A00DB /* pipeline2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DC82B116B0510A004A00DB /* pipeline2-2.png */; };
@@ -350,7 +352,9 @@
 		A58BA4831716E96500394BB4 /* LandLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LandLayer.mm; sourceTree = "<group>"; };
 		A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car2.plist; sourceTree = "<group>"; };
 		A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car2.pvr; sourceTree = "<group>"; };
-		A58F7ACB171DB4CF006096E5 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
+		A58F7ADC172030BA006096E5 /* pig_land_car3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car3.plist; sourceTree = "<group>"; };
+		A58F7ADD172030BA006096E5 /* pig_land_car3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car3.pvr; sourceTree = "<group>"; };
+		A5BC17BD1720515500B49149 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
 		A5D953D516F869BF001C9934 /* pigrun-sun02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-sun02.png"; sourceTree = "<group>"; };
 		A5DC82B016B0510A004A00DB /* pipeline2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pipeline2-1.png"; sourceTree = "<group>"; };
 		A5DC82B116B0510A004A00DB /* pipeline2-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pipeline2-2.png"; sourceTree = "<group>"; };
@@ -1680,7 +1684,9 @@
 				A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */,
 				A58F7AC7171DB4BE006096E5 /* pig_land_car2.plist */,
 				A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */,
-				A58F7ACB171DB4CF006096E5 /* pig-run.plist */,
+				A58F7ADC172030BA006096E5 /* pig_land_car3.plist */,
+				A58F7ADD172030BA006096E5 /* pig_land_car3.pvr */,
+				A5BC17BD1720515500B49149 /* pig-run.plist */,
 				A587F1F116CA04B30099247B /* pigrun-pig.png */,
 				A587F1F216CA04B30099247B /* pigrun-sign.png */,
 				A5D953D516F869BF001C9934 /* pigrun-sun02.png */,
@@ -1882,7 +1888,9 @@
 				A58BA457171326AF00394BB4 /* Icon@2x.png in Resources */,
 				A58F7AC9171DB4BE006096E5 /* pig_land_car2.plist in Resources */,
 				A58F7ACA171DB4BE006096E5 /* pig_land_car2.pvr in Resources */,
-				A58F7ACC171DB4CF006096E5 /* pig-run.plist in Resources */,
+				A58F7ADE172030BA006096E5 /* pig_land_car3.plist in Resources */,
+				A58F7ADF172030BA006096E5 /* pig_land_car3.pvr in Resources */,
+				A5BC17BE1720515500B49149 /* pig-run.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

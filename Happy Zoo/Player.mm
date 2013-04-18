@@ -45,7 +45,7 @@
 }
 
 -(void) jump {
-    b2Vec2 impulse = b2Vec2(2.0f, 140.0f);
+    b2Vec2 impulse = b2Vec2(-3.0f, 140.0f);
     body->ApplyLinearImpulse(impulse, body->GetWorldCenter());		    
 }
 @end

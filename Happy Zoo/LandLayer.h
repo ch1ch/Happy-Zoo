@@ -37,12 +37,18 @@
     CCSpriteBatchNode  *land12;
     CCSpriteBatchNode  *land13;
     CCSpriteBatchNode  *land14;
+    CCSprite *monster1;
+    CCSprite *monster2;
+    CCSprite *monster3;
+    CCSprite *monster4;
+    CCSprite *monster5;
+    CCSprite *monster6;
     CCLayer *menulayer;
     CCLayer *landlayer;
     int firsttime;
-    int pigjump;
     CGPoint pos9;
     CCLabelTTF *label1;
+    int pigjumping;
     //CGSize screenSize;
     
     CGPoint newpigpostion;
