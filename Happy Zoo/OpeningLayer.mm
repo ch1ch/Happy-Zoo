@@ -33,10 +33,11 @@
 	{
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
-        
+         [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"bus.mp3" loop:YES];
         
         //背景，两张轮换
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"opensc1_default.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openAnimation.plist"];
+         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openAnimation2.plist"];
         
         CCSpriteBatchNode* Spsbackgroup = [CCSprite spriteWithSpriteFrameName:@"opsky1.png"];
         [Spsbackgroup setPosition:ccp(screenSize.width*0.5 ,screenSize.height*0.5)];
@@ -65,11 +66,7 @@
         [anibus setDelayPerUnit:0.2f];
         id actbus =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.2f], [CCAnimate  actionWithAnimation:anibus], NULL]];
         [Spsbus  runAction:actbus];
-        
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"opensc2_default.plist"];
-        
-        
+
         //动物园门
         CCSpriteBatchNode* Spsdoor = [CCSprite spriteWithSpriteFrameName:@"opdoor1.png"];
         [Spsdoor setPosition:ccp(screenSize.width*0.8 ,screenSize.height*0.3)];
@@ -119,6 +116,8 @@
 {
     
     [[CCDirector sharedDirector] replaceScene:[OpeningStart scene]];
+    //[[CCDirector sharedDirector] replaceScene:[FirstScene scene]];
+
     
 }
 

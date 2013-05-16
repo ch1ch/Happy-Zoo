@@ -8,6 +8,8 @@
 
 #import "CCLayer.h"
 
-@interface MenuCrites : CCLayer
-
+@interface MenuCrites : CCLayer{
+    
+}
++(id) scene;
 @end

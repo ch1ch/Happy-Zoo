@@ -11,8 +11,10 @@
 #import "Box2D/Box2D.h"
 
 #import"GLES-Render.h"
-
+#import "SimpleAudioEngine.h"
 #import"MyContactListener.h"
+extern int game2level;
+extern int game2thing;
 
 @interface GameSceneball : CCLayer {
     CCSprite* player;
@@ -24,6 +26,7 @@
     CCMenu *menu3;
     CCMenu *menu4;
     CCMenu *menu5;
+    CCMenu *menu7;
     CCSprite * backgroundmenu;
     CCSprite * ballself ;
     CCSprite *shelf1;
@@ -31,8 +34,13 @@
     CCSprite *Animal1;
     CCSprite *Animal2;
     int gameover;
+    int gametime;
+    int gamewin;
+    CCSprite *game2treasure;
+    CCSpriteBatchNode *game2treasures;
+    int wait2star;
 
-
+    int bangbang;
     
     CCLabelTTF *label1;
     BOOL girlvis;
@@ -48,6 +56,8 @@
     GLESDebugDraw *_debugDraw;
     
     MyContactListener *_contactListener;
+    BOOL isPlaying;
+
 
 
 }

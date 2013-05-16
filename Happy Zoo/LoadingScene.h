@@ -16,6 +16,7 @@ typedef enum
 	TargetScene2Scene,
     TargetScene3Scene,
     TargetScene4Scene,
+    TargetScene4Scene_1,
     TargetSceneHome,
   	TargetSceneMAX,
 } TargetScenes;

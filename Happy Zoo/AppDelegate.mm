@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -50,6 +51,7 @@
 	// 2D projection
 	[director_ setProjection:kCCDirectorProjection2D];
 //	[director setProjection:kCCDirectorProjection3D];
+    [director_ shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationLandscapeRight];
 
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 	//if( ! [director_ enableRetinaDisplay:YES] )
@@ -74,6 +76,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
+    
 	[director_ pushScene: [IntroLayer scene]]; 
 
 	
@@ -96,8 +99,9 @@
 // Supported orientations: Landscape. Customize it for your own needs
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	//return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-    return YES;
+	//return UIInterfaceOrientationIsLandscape(UIInterfaceOrientationLandscapeRight);
+    return interfaceOrientation==UIInterfaceOrientationLandscapeRight;
+    //return YES;
 }
 
 

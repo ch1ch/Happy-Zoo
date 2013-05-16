@@ -17,6 +17,7 @@
     if ((self =[super init]))
     {
         screenSize=[[CCDirector sharedDirector] winSize];
+         [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"pigrun.mp3" loop:YES];
        
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         CCMenuItemImage *menum11 = [CCMenuItemImage itemFromNormalImage:@"gaming-pause.png" selectedImage:@"gaming-pause.png" disabledImage:@"gaming-pause.png" target:self selector:@selector(gamingmenu)];
@@ -106,6 +107,9 @@
 }
 
 -(void) gomenu2{
+
+    [[SimpleAudioEngine sharedEngine]playEffect:@"replay.mp3"];
+
     [[CCDirector sharedDirector] resume];
     CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene3Scene];
     [[CCDirector sharedDirector] replaceScene:newScene];
@@ -118,8 +122,14 @@
 }
 
 -(void) gomenu4{
-    // CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene2Scene];
-    // [[CCDirector sharedDirector] replaceScene:newScene];
+
+    isPlaying=[[SimpleAudioEngine sharedEngine]isBackgroundMusicPlaying];
+    if (isPlaying) {
+        [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+    }else{
+        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"pigrun.mp3" loop:YES];
+    }
+    
     
 }
 -(void) gomenu5{

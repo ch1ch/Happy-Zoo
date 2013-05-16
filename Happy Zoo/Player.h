@@ -16,6 +16,7 @@
 
 -(void) createBox2dObject:(b2World*)world;
 -(void) jump;
+-(void) down;
 -(void) moveRight;
 
 @property (nonatomic, readwrite) b2Body *body;

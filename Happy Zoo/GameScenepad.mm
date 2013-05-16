@@ -6,18 +6,20 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameScenerun.h"
-#import "GameScenepie.h"
-#import "GameOverScene.h"
+#import "GameScenepad.h"
+
 #import "LoadingScene.h"
 #import "FirstScene.h"
 #import "GamingMain.h"
-#import "MenuLayer.h"
-#import "LandLayer.h"
+#import "GamepadCenter.h"
+#import "GamepadMenu.h"
+
 
 #define PTM_RATIO 32.0
 
-@implementation GameScenerun
+
+
+@implementation GameScenepad
 
 
 
@@ -32,7 +34,7 @@ static FirstScene* multiLayerSceneInstance;
 
 -(ListLayer*) listLayer
 {
-	CCNode* layer = [self getChildByTag:LayerTagGameLayer];
+	CCNode* layer = [self getChildByTag:LayerTagGameLayer1];
 	return (ListLayer*)layer;
 }
 
@@ -42,7 +44,7 @@ static FirstScene* multiLayerSceneInstance;
 +(id) scene
 {
     CCScene *scene=[CCScene node];
-    CCLayer* layer =[GameScenerun node];
+    CCLayer* layer =[GameScenepad node];
     [scene addChild:layer];
     return scene;
 }
@@ -52,49 +54,27 @@ static FirstScene* multiLayerSceneInstance;
 {
     if ((self=[super init]))
     {
+        padbacknumber=1;
         CCLOG(@" %@ : %@",NSStringFromSelector(_cmd),self);
-        CGSize screenSize=[[CCDirector sharedDirector] winSize];
+       // CGSize screenSize=[[CCDirector sharedDirector] winSize];
+        [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
         
-        menulayer=[MenuLayer node];
+        padcenter=[GamepadCenter node];
         
-        landlayer=[LandLayer node];
-        [self addChild:menulayer z:10 tag:LayerTagGameLayer];
-        [self addChild:landlayer z:10 tag:200];
+        padmenu=[GamepadMenu node];
+        [self addChild:padcenter z:25 tag:LayerTagGameLayer1];
+        [self addChild:padmenu z:40 tag:200];
 
-        //背景，两张轮换
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig-sky.plist"];
-        CCSpriteBatchNode* Spsbackgroup = [CCSprite spriteWithSpriteFrameName:@"pigrun-sky01.png"];
-        [Spsbackgroup setPosition:ccp(screenSize.width*0.5 ,screenSize.height*0.5)];
-        [self addChild:Spsbackgroup z:0];
-        CCAnimation *anibackgroup = [CCAnimation animation];
-        for(unsigned int i = 1; i <3; i++)
-        {
-            NSString *naback = [NSString stringWithFormat:@"pigrun-sky0%d.png", i];
-            [anibackgroup  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:naback]];
-        }
-        [anibackgroup setDelayPerUnit:0.5f];
-        id actback =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.5f], [CCAnimate  actionWithAnimation:anibackgroup], NULL]];
-        [Spsbackgroup  runAction:actback];
-        
-        
-        
+        //背景，
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"padpic-1.plist"];
 
-        CCSprite *pig_sun=[CCSprite spriteWithFile:@"pigrun-sun02.png"];
-        pig_sun.position=CGPointMake(screenSize.width*0.7 ,screenSize.height*0.715);
-        [self addChild:pig_sun z:3 tag:72];
-        /*
-        //云
-        CCSpriteBatchNode  *pig_cloud=[CCSprite spriteWithFile:@"pigrun-cloud01.png"];
-        pig_cloud.position=CGPointMake(screenSize.width*0.6 ,screenSize.height*0.615);
-        [self addChild:pig_cloud z:3 tag:72];
-        */
+
         [self schedule:@selector(tick:)interval:0.1f];
         [self setIsTouchEnabled:YES];
         
-
     }
 
-    //[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+  
     return self;
 }
 
@@ -104,6 +84,7 @@ static FirstScene* multiLayerSceneInstance;
 
     
 }
+
 
 -(void)dealloc
 {

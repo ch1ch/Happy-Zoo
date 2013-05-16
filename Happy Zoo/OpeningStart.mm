@@ -41,7 +41,7 @@
         [self addChild:backgroup z:1];
         
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"opensc2_default.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openAnimation2.plist"];
 
  
         opstart = [CCSprite spriteWithSpriteFrameName:@"opstart1.png"];
@@ -56,9 +56,7 @@
         [anistart setDelayPerUnit:0.3f];
         id actstart =[CCRepeatForever actionWithAction: [CCSequence actions: [CCAnimate  actionWithAnimation:anistart], NULL]];
         [opstart  runAction:actstart];
-        
-  
-        
+      
         
     }
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -75,8 +73,6 @@
 }
 
 
-
-
 - (void)selectSpriteForTouch:(CGPoint)touchLocation
 {
    
@@ -87,6 +83,7 @@
     
       if ((CGRectContainsPoint(sprite.boundingBox, touchLocation)) &&(run1time==0))
       {
+           [[SimpleAudioEngine sharedEngine]playEffect:@"start.mp3" ];
           run1time=1;
           
           CCSpriteBatchNode* backgroup = [CCSprite spriteWithFile:@"opentran.png"];
@@ -152,10 +149,6 @@
    // CCLOG(@"About Scene dealloc");
 
     
-    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"openmovie1.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"openmovie2.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"openmovie3.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"openmovie4.plist"];
     
 #ifdef DEBUG
     [[CCTextureCache sharedTextureCache] removeUnusedTextures];

@@ -8,17 +8,46 @@
 
 #import "GameOverScene.h"
 #import "GameScenepie.h"
+#import "FirstScene.h"
+#import "LoadingScene.h"
+
 
 @implementation GameOverScene
-@synthesize layer = _layer;
+
++(id) scene
+{
+    CCScene *scene=[CCScene node];
+    CCLayer* layer =[GameOverScene node];
+    [scene addChild:layer];
+    return scene;
+}
 
 - (id)init {
-    
-    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"gameoverthings.plist"];
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
     if ((self = [super init])) {
+        NSLog(@"~huanle~~gamelevel~~%d",game1level);
+       
         
-        self.layer = [GameOverLayer node];
-        [self addChild:_layer];
+        if (gamescene==1) {
+            if (game1level==0) gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end1.png"];
+            if (game1level==1) gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end2.png"];
+            if (game1level==2) gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end3.png"];
+            if (game1level==3) gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end4.png"];
+        }
+
+        [gamesprite setPosition:ccp(screenSize.width*0.5,screenSize.height*0.5)];
+        [self addChild:gamesprite z:4 tag:501];
+
+
+        
+        NSString *temppst=[NSString stringWithFormat:@"game~   ~%d~  win  ~%d~",gamescene,game1level];
+        label1 = [CCLabelTTF labelWithString:temppst fontName:@"Arial" fontSize:32];
+        label1.color = ccc3(255,0,0);
+        label1.position = ccp(screenSize.width/2, screenSize.height/2);
+        //[self addChild:label1];
+        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+
      
     }
     return self;
@@ -27,49 +56,23 @@
 
 - (void)dealloc {
     
-    [_layer release];
-    _layer = nil;
+
     [super dealloc];
     
     
 }
-
-@end
-
-@implementation GameOverLayer
-@synthesize label = _label;
-
--(id) init {
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
-    if( (self=[super init] )) {
-        
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        self.label = [CCLabelTTF labelWithString:@"win" fontName:@"Arial" fontSize:32];
-        _label.color = ccc3(255,0,0);
-        _label.position = ccp(winSize.width/2, winSize.height/2);
-        [self addChild:_label];
-        
-        [self runAction:[CCSequence actions:
-                         [CCDelayTime actionWithDuration:3],
-                         [CCCallFunc actionWithTarget:self selector:@selector(gameOverDone)],
-                         nil]];
-        
-        
-        
-    }
-    return self;
+   // CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+       [self gohome];
     
-    
+    return TRUE;
 }
 
-
-
-- (void)dealloc {
-    
-    [_label release];
-    _label = nil;
-    [super dealloc]; 
-    
+-(void) gohome{
+   // [[CCDirector sharedDirector] resume];
+    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetSceneHome];
+    [[CCDirector sharedDirector] replaceScene:newScene];
     
 }
 

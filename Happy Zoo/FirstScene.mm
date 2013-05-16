@@ -6,17 +6,23 @@
 #import "FirstScene.h"
 #import "GameScenepie.h"
 #import "LoadingScene.h"
-#import "GameOverScene.h"
 #import "GameSceneball.h"
 #import "FirstsceList.h"
 #import "GameScenerun.h"
-
-
-
-
-
+#import "MenuCrites.h"
 
 @implementation FirstScene
+
+int gamestarscore;
+int game1thing;
+int game2thing;
+int game3thing;
+int game4thing;
+int game1level;
+int game2level;
+int game3level;
+int game4level;
+int gamescene;
 
 static FirstScene* multiLayerSceneInstance;
 +(FirstScene*) sharedLayer
@@ -48,10 +54,12 @@ static FirstScene* multiLayerSceneInstance;
 {
 	if ((self = [super init]))
 	{
+        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"list.mp3" loop:YES];
         
         //NSAssert(multiLayerSceneInstance == nil, @"another MultiLayerScene is already in use!");
 		multiLayerSceneInstance = self;
         
+
 
         CGSize size = [[CCDirector sharedDirector] winSize];
         //[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
@@ -64,16 +72,21 @@ static FirstScene* multiLayerSceneInstance;
         background = [CCSprite spriteWithFile:@"mainBackground3.png"];
         background.position = CGPointMake(size.width*0.5, size.height*0.5 );
        	[self addChild:background z:11];
-        
 
-        
-        
              
-        mainFlower = [CCSprite spriteWithFile:@"mainflower1.png"];
-        mainFlower.position = CGPointMake(size.width*0.5, size.height*0.5 );
-       	[self addChild:mainFlower z:15];
+        //mainFlower = [CCSprite spriteWithFile:@"flower1.png"];
+       // mainFlower.position = CGPointMake(size.width*0.5, size.height*0.5 );
+       	//[self addChild:mainFlower z:15];
         
-        mainSound = [CCSprite spriteWithFile:@"mainmusic-on.png"];
+        mainFlower2 = [CCSprite spriteWithFile:@"flower2.png"];
+        mainFlower2.position = CGPointMake(size.width*0.2, size.height*0.63 );
+       	[self addChild:mainFlower2 z:15];
+        
+        mainFlower3 = [CCSprite spriteWithFile:@"flower3.png"];
+        mainFlower3.position = CGPointMake(size.width*0.87, size.height*0.5 );
+       	[self addChild:mainFlower3 z:15];
+        
+        mainSound = [CCSprite spriteWithFile:@"music-on.png"];
         mainSound.position = CGPointMake(size.width*0.5, size.height*0.5 );
        	[self addChild:mainSound z:15];
         
@@ -93,22 +106,19 @@ static FirstScene* multiLayerSceneInstance;
         id actback =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.1f], [CCAnimate  actionWithAnimation:anibackgroup], NULL]];
         [Spsbackgroup  runAction:actback];
         
-        
-        
-        
-        
-        
-        mainCenter = [CCSprite spriteWithFile:@"maingamecenter.png"];
+     
+        mainCenter = [CCSprite spriteWithFile:@"gamecenter.png"];
         mainCenter.position = CGPointMake(size.width*0.5, size.height*0.5 );
        	[self addChild:mainCenter z:11];
         
-        mainHome = [CCSprite spriteWithFile:@"mainhome.png"];
+        mainHome = [CCSprite spriteWithFile:@"home.png"];
         mainHome.position = CGPointMake(size.width*0.5, size.height*0.5 );
        	[self addChild:mainHome z:11];
+
         
-        mainQuestion = [CCSprite spriteWithFile:@"mainquestion.png"];
-        mainQuestion.position = CGPointMake(size.width*0.5, size.height*0.5 );
-       	[self addChild:mainQuestion z:15];
+        mainCrites = [CCSprite spriteWithFile:@"credits.png"];
+        mainCrites.position = CGPointMake(size.width*0.96, size.height*0.49 );
+       	[self addChild:mainCrites z:15];
         
         
         mainarrleft = [CCSprite spriteWithFile:@"mainarrowleft.png"];
@@ -116,13 +126,14 @@ static FirstScene* multiLayerSceneInstance;
        	[self addChild:mainarrleft z:15];
         
         mainarrright = [CCSprite spriteWithFile:@"mainarrowright.png"];
-        mainarrright.position = CGPointMake(size.width*0.93, size.height*0.45 );
+        mainarrright.position = CGPointMake(size.width*0.96, size.height*0.35 );
        	[self addChild:mainarrright z:15];
         
         // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
-
-        CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d /15      0 / 5",1] fontName:@"DayDream" fontSize:67];
-        label1.position =  ccp(size.width*0.8, size.height*0.92);
+        int sc=game1level+game2level+game3level;
+        int thing=(game1thing+game2thing+game3thing+game4thing);
+        CCLabelTTF *label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d /9       %d / 4",sc,thing/2] fontName:@"DayDream" fontSize:67];
+        label1.position =  ccp(size.width*0.78, size.height*0.93);
         [self addChild: label1 z:20];
         
 
@@ -137,15 +148,50 @@ static FirstScene* multiLayerSceneInstance;
 		[GameScenepie simulateLongLoadingTime];
                 		
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+         [self schedule:@selector(update:) interval:0.1f];
 
 	}
+    
 	return self;
 }
 
+-(void) update:(ccTime)delta{
+    if (isTouchflower2) {
+        CGPoint tempos=mainFlower2.position;
+        tempos.y=tempos.y-10;
+        mainFlower2.position=tempos;
+    }
+    if (isTouchflower3) {
+        CGPoint tempos=mainFlower3.position;
+        tempos.y=tempos.y-10;
+        mainFlower3.position=tempos;
+    }
+}
 
++(int)retulevel1{
+    return game1level;
+}
 
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
+    
+    if (CGRectContainsPoint(mainCrites.boundingBox, touchLocation))
+    {
+          [[SimpleAudioEngine sharedEngine]playEffect:@"map.wav" ];
+        CCTransitionFade *tranScene=[CCTransitionFade transitionWithDuration:1 scene:[MenuCrites scene]];
+        [[CCDirector sharedDirector] replaceScene:tranScene];
+    }
+    if (CGRectContainsPoint(mainFlower2.boundingBox, touchLocation))
+    {
+        isTouchflower2=YES;
+    }
+    if (CGRectContainsPoint(mainFlower3.boundingBox, touchLocation))
+    {
+        isTouchflower3=YES;
+    }
+
+    
+    
     CCRotateBy* rotate = [CCRotateBy actionWithDuration:1 angle:-45];
     CCRotateBy* rotate1 = [CCRotateBy actionWithDuration:1 angle:45];
 

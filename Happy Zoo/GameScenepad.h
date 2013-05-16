@@ -1,5 +1,5 @@
 //
-//  GameScenerun.h
+//  GameScenepad.h
 //  Happy Zoo
 //
 //  Created by f on 1/10/13.
@@ -9,31 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Box2D/Box2D.h"
-
 #import"GLES-Render.h"
-
 #import"MyContactListener.h"
-#import "Player.h"
+#import "SimpleAudioEngine.h"
+static int padbacknumber;
 
-
-//typedef enum
-////{
-//	LayerTagGameLayer,
-//	LayerTagUILayer,
-//} MultiLayerSceneTags;
-
-
-@interface GameScenerun : CCLayer {
+@interface GameScenepad : CCLayer {
 
 
     CCSprite * backgroundmenu;
     CCLabelTTF *label1;
-    CCLayer *menulayer;
-    CCLayer *landlayer;
-    CGPoint newpigpostion;
-    CGPoint oldpigpostion;
-    
-    
+    CCLayer *padcenter;
+    CCLayer *padmenu;
+
 }
 
 

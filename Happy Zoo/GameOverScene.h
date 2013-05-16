@@ -8,16 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameOverLayer : CCLayer{
-    CCLabelTTF *_label;
-}
-@property (nonatomic,retain)CCLabelTTF *label;
-
-@end
+extern int game1level;
+extern int game1thing;
+extern int gamescene;
 
 @interface GameOverScene : CCScene{
-    GameOverLayer *_layer;
-}
+    CCLabelTTF *label1;
+    CCSpriteBatchNode *gamesprite;
 
-@property (nonatomic,retain)GameOverLayer *layer;
+}
++(id) scene;
+
 @end

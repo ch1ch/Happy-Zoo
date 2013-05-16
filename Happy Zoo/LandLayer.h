@@ -12,13 +12,18 @@
 #import"MyContactListener.h"
 #import "CCLayer.h"
 #import "Player.h"
+#import "SimpleAudioEngine.h"
 
+extern int game3level;
+extern int game3thing;
 
 @interface LandLayer : CCLayer{
     Player1 *pig;
     CCSprite *startsign;
     CCSpriteBatchNode  *pig_sun;
     CCSprite * selSprite;
+    CCSprite *pig_pig;
+    
     CCSprite  *land1;
     CCSprite  *land2;
     CCSpriteBatchNode  *land3;
@@ -41,11 +46,20 @@
     CCSprite *monster2;
     CCSprite *monster3;
     CCSprite *monster4;
+        CCSprite *monster7_1;
     CCSprite *monster5;
     CCSprite *monster6;
     CCLayer *menulayer;
     CCLayer *landlayer;
+    
+    CCMenu *menu7;
+    CCMenu *menu2;
+    CCMenu *menu5;
+    
     int firsttime;
+    int gametime;
+    CCSprite *game3treasure;
+    CCSpriteBatchNode *game3treasures;
     CGPoint pos9;
     CCLabelTTF *label1;
     int pigjumping;

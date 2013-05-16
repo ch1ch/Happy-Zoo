@@ -11,9 +11,10 @@
 #import "IntroLayer.h"
 #import "FirstScene.h"
 #import "OpeningLayer.h"
-#import "OpeningStart.h"
-#import "GameSceneball.h"
+//#import "OpeningStart.h"
+//#import "GameSceneball.h"
 #import "GameScenerun.h"
+//#import "GameScenepad.h"
 
 
 #pragma mark - IntroLayer
@@ -65,6 +66,6 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScenerun scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[FirstScene scene] withColor:ccWHITE]];
 }
 @end

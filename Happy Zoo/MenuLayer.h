@@ -7,6 +7,7 @@
 //
 
 #import "CCLayer.h"
+#import "SimpleAudioEngine.h"
 
 @interface MenuLayer : CCLayer{
     CCMenu *menu1;
@@ -16,6 +17,7 @@
     CCMenu *menu5;
     CCSprite * backgroundmenu;
     CGSize screenSize;
+    BOOL isPlaying;
 }
 
 @end

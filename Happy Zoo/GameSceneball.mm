@@ -30,9 +30,11 @@
     if((self=[super init]))
     {
         CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
+         [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"balloon.mp3" loop:YES];
         
 		self.isAccelerometerEnabled = YES;
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
+        [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
         
         
         b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
@@ -91,6 +93,7 @@
         [Sgirl  runAction:actgirl];
         girlvis=YES;
         
+        [[SimpleAudioEngine sharedEngine]playEffect:@"wind.mp3" ];
         
         //草丛
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"grass_default.plist"];
@@ -113,7 +116,7 @@
         //顶层
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_top_default.plist"];
         Stop = [CCSprite spriteWithSpriteFrameName:@"ball_top_1.png"];
-        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*7.0)];
+        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*6.0)];
         [self addChild:Stop z:7];
         
         CCAnimation *antop = [CCAnimation animation];
@@ -127,6 +130,13 @@
         id acttop =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.1f], [CCAnimate  actionWithAnimation:antop], NULL]];
         [Stop  runAction:acttop];
         
+        //隐藏物品
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"gameoverthings.plist"];
+        game2treasure=[CCSprite spriteWithSpriteFrameName:@"treasure02.png"];
+        [game2treasure setPosition:ccp(screenSize.width*0.81,screenSize.height*4.11)];
+        [self addChild:game2treasure z:30 tag:501];
+        [obstacle addObject:game2treasure];
+        
         
         //动物
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal1.plist"];
@@ -134,6 +144,8 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal4.plist"];
          [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal5.plist"];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal6.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal7.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"animal8.plist"];
         [self drawanimal2];
         [self drawanimal3];
         [self drawanimal4];
@@ -142,7 +154,7 @@
         [self drawanimal9];
         [self drawanimal10];
         [self drawanimal11];
-        [self drawanimal13];
+        [self drawanimal13]; [self drawanimal14]; [self drawanimal15];
 
               
         //小大象
@@ -164,7 +176,7 @@
        
         //白鸟
         Animal1 = [CCSprite spriteWithSpriteFrameName:@"ball_animal3_1.png"];
-        [Animal1 setPosition:ccp(screenSize.width*0.25 ,screenSize.height*0.86)];
+        [Animal1 setPosition:ccp(screenSize.width*0.25 ,screenSize.height*0.83)];
         [self addChild:Animal1 z:15 tag:9];
         [obstacle addObject:Animal1];
         CCAnimation *ananmail1 = [CCAnimation animation];
@@ -200,6 +212,7 @@
          [self schedule:@selector(tick:)];
         
         [self schedule:@selector(update:) interval:0.1f];
+         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     }
     return self;
 }
@@ -361,7 +374,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     CCSprite *Animal3 = [CCSprite spriteWithSpriteFrameName:@"ball_animal4_1.png"];
-    [Animal3 setPosition:ccp(screenSize.width*0.16 ,screenSize.height*2.24)];
+    [Animal3 setPosition:ccp(screenSize.width*0.16 ,screenSize.height*2.22)];
     [self addChild:Animal3 z:15 tag:42];
     [obstacle addObject:Animal3];
     
@@ -586,8 +599,8 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal11_1.png"];
-    [Animal4 setPosition:ccp(screenSize.width*(-0.6),screenSize.height*5.0)];
-    [self addChild:Animal4 z:15 tag:51];
+    [Animal4 setPosition:ccp(screenSize.width*(-0.8),screenSize.height*4.8)];
+    [self addChild:Animal4 z:15 tag:260];
     [obstacle addObject:Animal4];
     
     
@@ -624,7 +637,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal13_1.png"];
-    [Animal4 setPosition:ccp(screenSize.width*0.7,screenSize.height*6.9)];
+    [Animal4 setPosition:ccp(screenSize.width*0.7,screenSize.height*6.8)];
     [self addChild:Animal4 z:15 tag:53];
     [obstacle addObject:Animal4];
     
@@ -646,6 +659,80 @@
     for(unsigned int i = 1; i <15 ; i++)
     {
         NSString *naanmal1 = [NSString stringWithFormat:@"ball_animal13_%d.png", i];
+        [ananmail1  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:naanmal1]];
+    }
+    
+    [ananmail1 setDelayPerUnit:0.25f];
+    id actanmal1 =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.1f], [CCAnimate  actionWithAnimation:ananmail1], NULL]];
+    [Animal4  runAction:actanmal1];
+    
+    
+}
+
+//豹子
+- (void)drawanimal14 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal14_1.png"];
+    [Animal4 setPosition:ccp(screenSize.width*(-0.01),screenSize.height*7.5)];
+    [self addChild:Animal4 z:15 tag:64];
+    [obstacle addObject:Animal4];
+    
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(Animal4.position.x/PTM_RATIO, Animal4.position.y/PTM_RATIO);
+    bodyDef.userData = Animal4;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"ball_animal14_1";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [Animal4 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+    
+    
+    CCAnimation *ananmail1 = [CCAnimation animation];
+    for(unsigned int i = 1; i <22 ; i++)
+    {
+        NSString *naanmal1 = [NSString stringWithFormat:@"ball_animal14_%d.png", i];
+        [ananmail1  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:naanmal1]];
+    }
+    
+    [ananmail1 setDelayPerUnit:0.25f];
+    id actanmal1 =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.1f], [CCAnimate  actionWithAnimation:ananmail1], NULL]];
+    [Animal4  runAction:actanmal1];
+    
+    
+}
+
+//豹子
+- (void)drawanimal15 {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal15_1.png"];
+    [Animal4 setPosition:ccp(screenSize.width*0.7,screenSize.height*8.0)];
+    [self addChild:Animal4 z:15 tag:64];
+    [obstacle addObject:Animal4];
+    
+    
+    b2BodyDef bodyDef;
+    
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(Animal4.position.x/PTM_RATIO, Animal4.position.y/PTM_RATIO);
+    bodyDef.userData = Animal4;
+    b2Body *body = _world->CreateBody(&bodyDef);
+    
+    NSString *name = @"ball_animal15_1";
+    // add the fixture definitions to the body
+    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
+    [Animal4 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
+    
+    
+    CCAnimation *ananmail1 = [CCAnimation animation];
+    for(unsigned int i = 1; i <20 ; i++)
+    {
+        NSString *naanmal1 = [NSString stringWithFormat:@"ball_animal15_%d.png", i];
         [ananmail1  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:naanmal1]];
     }
     
@@ -697,7 +784,52 @@
 -(void) update:(ccTime)delta
 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    gametime++;
+    NSLog(@"game time is %d",gametime);
     
+    //隐藏物品判断
+    if (game2thing==1) {
+
+        game2treasure.visible=NO;
+        [[SimpleAudioEngine sharedEngine]playEffect:@"foundthing.mp3"];
+        game2thing=2;
+        
+        game2treasures=[CCSprite spriteWithSpriteFrameName:@"Game-treasure2.png"];
+        [game2treasures setPosition:ccp(screenSize.width*0.12,screenSize.height*0.14)];
+        [self addChild:game2treasures z:35];
+        
+    }
+    if (game2thing==2) {
+        wait2star++;
+        if (wait2star>20) {
+            
+        
+        CGPoint temp=game2treasures.position;
+        temp.x=temp.x-3;
+        temp.y=temp.y-3;
+        game2treasures.position=temp;
+        }
+    }
+    
+    //鲸鱼移动
+    CCSprite *whale=(CCSprite *)[self getChildByTag:260];
+    NSLog(@"ele~~x= %f   y=%f",whale.position.x,whale.position.y);
+    CGPoint whaletemp=whale.position;
+    if (whaletemp.y<150) {
+        if (whaletemp.y<-700)
+        {
+            whaletemp.x=whaletemp.x+15;
+        }else
+        {
+            if (whaletemp.x<-400)
+            {
+                whaletemp.x=whaletemp.x+5;
+            }
+        }
+    whale.position=whaletemp;
+    }
+    
+    //女孩显示
     if(girlvis)
     {
         CGPoint pos2=Sgirl.position;
@@ -727,10 +859,15 @@
         {
             label1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"You Win! "] fontName:@"Marker Felt" fontSize:64];
             label1.position =  ccp(screenSize.width /2 ,screenSize.height/3 );
-            [self addChild: label1 z:50];
+            //[self addChild: label1 z:50];
+            if (gamewin==0) {
+
             id acfover = [CCCallFunc actionWithTarget:self selector:@selector(gampause)];
             
-            [Stop runAction:[CCSequence actions:acfover,NULL]];
+            //[Stop runAction:[CCSequence actions:acfover,NULL]];
+            [self Gameovers];
+            gamewin=1;
+            }
         }
         
     }else
@@ -743,11 +880,12 @@
     
     
     //所有元素位置更新
-    if (gameover==00){
+    if (gameover==0){
         
 
-    for (int num=0; num<14; num++) {
-        CCSprite *sprite=[obstacle objectAtIndex:num];
+   // for (int num=0; num<14; num++) {
+    for(CCSprite *sprite in obstacle){
+       // CCSprite *sprite=[obstacle objectAtIndex:num];
         //if (sprite.position.y+[sprite texture].contentSize.height>-50) {
            [self runobsMoveSequence:sprite];
        // }
@@ -762,7 +900,7 @@
 	
 	float imageWidthHalved = [ballself texture].contentSize.width * 0.5f;
 	float leftBorderLimit = imageWidthHalved;
-	float rightBorderLimit = screenSize.height;
+	float rightBorderLimit = screenSize.width;
     
 	if (pos.x < leftBorderLimit)
 	{
@@ -832,23 +970,34 @@
             CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
             CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
            // NSLog(@"%d  and   %d   zhuangjila~~",spriteA.tag,spriteB.tag);
-            if(!(spriteA.tag==11 && spriteB.tag==13) &&!(spriteA.tag==12 && spriteB.tag==41)&&!(spriteA.tag==13 && spriteB.tag==41)&&!(spriteA.tag==42 && spriteB.tag==44)&&!(spriteA.tag==44 && spriteB.tag==45)&&!(spriteA.tag==48 && spriteB.tag==49)&&!(spriteA.tag==12 && spriteB.tag==48)&&!(spriteA.tag==12 && spriteB.tag==13)&&!(spriteA.tag==11 && spriteB.tag==42)&&!(spriteA.tag==11 && spriteB.tag==44)&&!(spriteA.tag==50 && spriteB.tag==51)&&!(spriteA.tag==51 && spriteB.tag==53))
+            
+            /*if(!(spriteA.tag==11 && spriteB.tag==13) &&!(spriteA.tag==12 && spriteB.tag==41)&&!(spriteA.tag==13 && spriteB.tag==41)&&!(spriteA.tag==42 && spriteB.tag==44)&&!(spriteA.tag==44 && spriteB.tag==45)&&!(spriteA.tag==48 && spriteB.tag==49)&&!(spriteA.tag==12 && spriteB.tag==48)&&!(spriteA.tag==12 && spriteB.tag==13)&&!(spriteA.tag==11 && spriteB.tag==42)&&!(spriteA.tag==11 && spriteB.tag==44)&&!(spriteA.tag==50 && spriteB.tag==51)&&!(spriteA.tag==51 && spriteB.tag==53))*/
+                if(spriteA.tag==10||spriteB.tag==10)
                 {
                     if((spriteA.position.y+[spriteA texture].contentSize.height>-50) && (spriteB.position.y+[spriteB texture].contentSize.height>-50) )
                     {
                         
-                
+               
             
                     NSLog(@"%d  and   %d   zhuangjila~~",spriteA.tag,spriteB.tag);
-            
-                 //   [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
+                        if (gameover==0) {
+                            
+                           // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
+                                              [self gamefalse];
+                        }
+                                    
+                 //  [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
+                        
+ 
                     }
-                 // /   gameover=1;
+
                     
                    // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
 
-                    [label1 setString:[NSString stringWithFormat:@"Game Over!"]];
+                    //[label1 setString:[NSString stringWithFormat:@"Game Over!"]];
 
+
+                    /*
                     
                     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_bang_default.plist"];
                     
@@ -865,7 +1014,7 @@
 
                     
                     id acfover = [CCCallFunc actionWithTarget:self selector:@selector(gampause)];
-
+*/
 
 
                 }
@@ -873,6 +1022,42 @@
     }
     
    
+    
+}
+-(void)gamefalse{
+    gameover=1;
+    
+    if (bangbang==0) {
+        [[SimpleAudioEngine sharedEngine]playEffect:@"peng.mp3" ];
+
+    }
+    bangbang=1;
+    
+
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    ballself.visible=NO;
+
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_bang.plist"];
+    CCSpriteBatchNode* Spsbackgroup = [CCSprite spriteWithSpriteFrameName:@"ball_bang1.png"];
+    CGPoint tempp=ballself.position;
+    tempp.y=tempp.y+150;
+    [Spsbackgroup setPosition:tempp];
+    [self addChild:Spsbackgroup z:30];
+    CCAnimation *anibackgroup = [CCAnimation animation];
+    for(unsigned int i = 1; i <6; i++)
+    {
+        NSString *naback = [NSString stringWithFormat:@"ball_bang%d.png", i];
+        [anibackgroup  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:naback]];
+    }
+    [anibackgroup setDelayPerUnit:0.3f];
+    
+    id aclongtime = [CCCallFunc actionWithTarget:self selector:@selector(simLongLoadingTime)];
+    id acover = [CCCallFunc actionWithTarget:self selector:@selector(Gameovers)];
+    [Spsbackgroup runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.3f],[CCAnimate  actionWithAnimation:anibackgroup],[CCDelayTime actionWithDuration:1.1f],aclongtime,acover,NULL]];
+
+
+    
+       
     
 }
 
@@ -888,8 +1073,100 @@
   
 }
 
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+    [self selectSpriteForTouch:touchLocation];
+    return TRUE;
+}
 
 
+- (void)selectSpriteForTouch:(CGPoint)touchLocation
+{
+    
+    
+    if (CGRectContainsPoint(game2treasure.boundingBox, touchLocation))
+    {
+        NSLog(@"faxianla1");
+        game2thing=1;
+        //[game1treasure removeFromParentAndCleanup:YES];
+        // [self removeChild:game1treasure cleanup:YES];
+        
+    }
+}
+
+-(void) simLongLoadingTime
+{
+	// Simulating a long loading time by doing some useless calculation a large number of times.
+	double a = 122, b = 243;
+	for (unsigned int i = 0; i < 60000000; i++)
+	{
+		a = a / b;
+	}
+}
+
+-(void)Gameovers{
+    //[self simLongLoadingTime];
+    CGSize screenSize=[[CCDirector sharedDirector] winSize];
+    if (gametime>300) {
+        game2level=3;
+          [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+         [[SimpleAudioEngine sharedEngine]playEffect:@"start3.mp3" ];
+
+        CCSprite *gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end4.png"];
+        
+        [gamesprite setPosition:ccp(screenSize.width*0.5,screenSize.height*0.5)];
+        [self addChild:gamesprite z:50 tag:501];
+    
+        
+    }else if (gametime>200){
+        game2level=2;
+          [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine]playEffect:@"start2.mp3" ];
+        
+        CCSprite *gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end3.png"];
+        
+        [gamesprite setPosition:ccp(screenSize.width*0.5,screenSize.height*0.5)];
+        [self addChild:gamesprite z:50 tag:501];
+        
+    }else if(gametime>110){
+        game2level=1;
+          [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+         [[SimpleAudioEngine sharedEngine]playEffect:@"start1.mp3" ];
+
+        CCSprite *gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end2.png"];
+        [gamesprite setPosition:ccp(screenSize.width*0.5,screenSize.height*0.5)];
+        [self addChild:gamesprite z:50 tag:501];
+
+    }else{
+        CCSprite *gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end1.png"];
+          [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+         [[SimpleAudioEngine sharedEngine]playEffect:@"start0.mp3" ];
+        [gamesprite setPosition:ccp(screenSize.width*0.5,screenSize.height*0.5)];
+        [self addChild:gamesprite z:50 tag:501];
+    }
+    
+    //[[CCDirector sharedDirector] pause];
+    
+    CCMenuItemImage *menum2 = [CCMenuItemImage itemFromNormalImage:@"gaming-list2.png" selectedImage:@"gaming-list2-1.png" disabledImage:@"gaming-list2.png" target:self selector:@selector(gomenu2)];
+    menu2 = [CCMenu menuWithItems: menum2, nil];
+    menu2.position =  CGPointMake(screenSize.width*0.31, screenSize.height*0.48);
+    [self addChild: menu2 z:55 tag:122];
+    
+    CCMenuItemImage *menum5 = [CCMenuItemImage itemFromNormalImage:@"gaming-list5.png" selectedImage:@"gaming-list5-1.png" disabledImage:@"gaming-list5.png" target:self selector:@selector(gomenu5)];
+    menu5 = [CCMenu menuWithItems: menum5, nil];
+    menu5.position =  CGPointMake(screenSize.width*0.39, screenSize.height*0.33);
+    [self addChild: menu5 z:55 tag:125];
+    
+    CCMenuItemImage *menum7 = [CCMenuItemImage itemFromNormalImage:@"gaming-list7.png" selectedImage:@"gaming-list7-1.png" disabledImage:@"gaming-list7.png" target:self selector:@selector(gomenu7)];
+    menu7 = [CCMenu menuWithItems: menum7, nil];
+    menu7.position =  CGPointMake(screenSize.width*0.51, screenSize.height*0.26);
+    [self addChild: menu7 z:55 tag:125];
+    
+    
+    //CCTransitionFade *tranScene=[CCTransitionFade transitionWithDuration:1 scene:[GameOverScene scene]];
+    //[[CCDirector sharedDirector] replaceScene:tranScene];
+    
+}
 
 -(void) gamingmenu
 {
@@ -963,9 +1240,21 @@
 
 -(void) gomenu2
 {
+     [[SimpleAudioEngine sharedEngine]playEffect:@"replay.mp3"];
     [[CCDirector sharedDirector] resume];
      CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene2Scene];
       [[CCDirector sharedDirector] replaceScene:newScene];
+    
+}
+
+
+-(void)gomenu4{
+    isPlaying=[[SimpleAudioEngine sharedEngine]isBackgroundMusicPlaying];
+    if (isPlaying) {
+        [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
+    }else{
+        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"balloon.mp3" loop:YES];
+    }
     
 }
 
@@ -976,7 +1265,12 @@
      [[CCDirector sharedDirector] replaceScene:newScene];
     
 }
-
+-(void) gomenu7{
+    [[CCDirector sharedDirector] resume];
+    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene3Scene];
+    [[CCDirector sharedDirector] replaceScene:newScene];
+    
+}
 
 
 @end
