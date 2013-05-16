@@ -1141,17 +1141,17 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ 960.500,106.000 }</string>	
-								<string>{ 954.000,118.500 }</string>	
-								<string>{ 669.000,198.500 }</string>	
-								<string>{ 945.500,93.000 }</string>
-							</array>
-							<array>	
 								<string>{ 1.500,386.000 }</string>	
 								<string>{ 8.500,368.000 }</string>	
 								<string>{ 32.500,321.000 }</string>	
 								<string>{ 167.000,417.000 }</string>	
 								<string>{ 27.000,403.500 }</string>
+							</array>
+							<array>	
+								<string>{ 960.500,106.000 }</string>	
+								<string>{ 958.000,129.000 }</string>	
+								<string>{ 801.000,156.000 }</string>	
+								<string>{ 945.500,93.000 }</string>
 							</array>
 							<array>	
 								<string>{ 3.500,344.000 }</string>	
@@ -1163,8 +1163,8 @@
 								<string>{ 31.500,56.000 }</string>	
 								<string>{ 149.000,1.500 }</string>	
 								<string>{ 849.000,0.500 }</string>	
-								<string>{ 530.000,272.500 }</string>	
-								<string>{ 438.000,339.500 }</string>	
+								<string>{ 519.000,271.000 }</string>	
+								<string>{ 430.000,337.000 }</string>	
 								<string>{ 273.000,414.000 }</string>	
 								<string>{ 167.000,417.000 }</string>
 							</array>
@@ -1178,14 +1178,14 @@
 								<string>{ 909.500,8.000 }</string>	
 								<string>{ 941.500,34.000 }</string>	
 								<string>{ 948.500,53.000 }</string>	
-								<string>{ 945.500,93.000 }</string>	
-								<string>{ 669.000,198.500 }</string>	
+								<string>{ 519.000,271.000 }</string>	
 								<string>{ 849.000,0.500 }</string>
 							</array>
 							<array>	
-								<string>{ 669.000,198.500 }</string>	
-								<string>{ 530.000,272.500 }</string>	
-								<string>{ 849.000,0.500 }</string>
+								<string>{ 945.500,93.000 }</string>	
+								<string>{ 801.000,156.000 }</string>	
+								<string>{ 667.000,196.000 }</string>	
+								<string>{ 948.500,53.000 }</string>
 							</array>
 						</array>
                     </dict>
@@ -1542,7 +1542,8 @@
 						<array>
 							<array>	
 								<string>{ 91.000,1.000 }</string>	
-								<string>{ 57.000,42.000 }</string>	
+								<string>{ 63.000,53.000 }</string>	
+								<string>{ 32.000,46.000 }</string>	
 								<string>{ 18.000,3.000 }</string>
 							</array>
 						</array>
@@ -1596,6 +1597,47 @@
 								<string>{ 2.500,31.000 }</string>	
 								<string>{ 5.500,41.000 }</string>	
 								<string>{ 6.500,55.000 }</string>
+							</array>
+						</array>
+                    </dict>
+				</array>
+			</dict>
+			<key>pigrun-monskeng</key>
+			<dict>
+				<key>anchorpoint</key>
+                <string>{ 0.0000,0.0000 }</string>
+				<key>fixtures</key>
+				<array>
+
+					<dict>
+                        <key>density</key> <real>2</real>
+                        <key>friction</key> <real>0</real>
+                        <key>restitution</key> <real>0</real>
+                        <key>filter_categoryBits</key> <integer>1</integer>
+                        <key>filter_groupIndex</key> <integer>0</integer>
+                        <key>filter_maskBits</key> <integer>65535</integer>
+                        <key>isSensor</key> <false/>
+                        <key>id</key> <string></string>
+                        <key>fixture_type</key> <string>POLYGON</string>
+
+						<key>polygons</key>
+						<array>
+							<array>	
+								<string>{ 182.000,105.000 }</string>	
+								<string>{ 99.000,112.000 }</string>	
+								<string>{ 9.000,40.000 }</string>	
+								<string>{ 3.000,-2.000 }</string>	
+								<string>{ 164.000,38.000 }</string>
+							</array>
+							<array>	
+								<string>{ 3.000,103.000 }</string>	
+								<string>{ 9.000,40.000 }</string>	
+								<string>{ 99.000,112.000 }</string>
+							</array>
+							<array>	
+								<string>{ 183.000,0.000 }</string>	
+								<string>{ 164.000,38.000 }</string>	
+								<string>{ 3.000,-2.000 }</string>
 							</array>
 						</array>
                     </dict>
