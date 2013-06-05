@@ -58,6 +58,7 @@ extern int game3thing;
     
     int firsttime;
     int gametime;
+    BOOL gameoverb;
     CCSprite *game3treasure;
     CCSpriteBatchNode *game3treasures;
     CGPoint pos9;

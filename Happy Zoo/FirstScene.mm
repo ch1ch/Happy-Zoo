@@ -10,6 +10,7 @@
 #import "FirstsceList.h"
 #import "GameScenerun.h"
 #import "MenuCrites.h"
+#import "OpeningStart.h"
 
 @implementation FirstScene
 
@@ -181,6 +182,18 @@ static FirstScene* multiLayerSceneInstance;
         CCTransitionFade *tranScene=[CCTransitionFade transitionWithDuration:1 scene:[MenuCrites scene]];
         [[CCDirector sharedDirector] replaceScene:tranScene];
     }
+    
+    /*
+    if (CGRectContainsPoint(mainHome.boundingBox, touchLocation))
+    {
+
+        CCTransitionFade *tranScene=[CCTransitionFade transitionWithDuration:1 scene:[MenuCrites scene]];
+      //  [[CCDirector sharedDirector] replaceScene:[OpeningStart sence]];
+        [[CCDirector sharedDirector] replaceScene:[OpeningStart scene]];
+    }
+     */
+    
+    
     if (CGRectContainsPoint(mainFlower2.boundingBox, touchLocation))
     {
         isTouchflower2=YES;
@@ -288,13 +301,8 @@ static FirstScene* multiLayerSceneInstance;
         }
     }
     
-       
-
 
 }
-
-
-
 
 
 -(void) onEnter
@@ -321,20 +329,7 @@ static FirstScene* multiLayerSceneInstance;
 	[super onExit];
 }
 
-//去游戏一
--(void) gomenu1{
-    //[[CCDirector sharedDirector] replaceScene:[GameScenepie scene]];
-    // CCLOG(@"开始游戏");
-    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetSceneFirstScene];
-    [[CCDirector sharedDirector] replaceScene:newScene];
 
-}
-
--(void) gomenu2{
-    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene2Scene];
-    [[CCDirector sharedDirector] replaceScene:newScene];
-
-}
 
 -(void) dealloc
 {

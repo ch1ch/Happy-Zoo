@@ -11,6 +11,7 @@
 #import "LoadingScene.h"
 #import "FirstScene.h"
 #import "GamingMain.h"
+#import "MobClick.h"
 
 
 @implementation GameScenepie
@@ -242,7 +243,8 @@ static FirstScene* multiLayerSceneInstance;
 
 - (void)update:(ccTime)dt {
     gametime++;
-    NSLog(@"Time is =%d=",gametime);
+    //NSLog(@"Time is =%d=",gametime);
+    NSLog(@"Touch is =%d=",touchnum);
     CGSize screenSize=[[CCDirector sharedDirector] winSize];
     if (game1thing==1) {
        
@@ -282,7 +284,7 @@ static FirstScene* multiLayerSceneInstance;
 {
     
     
-    if (CGRectContainsPoint(game1treasure.boundingBox, touchLocation))
+    if (CGRectContainsPoint(game1treasure.boundingBox, touchLocation) && game1thing==0)
     {
         NSLog(@"faxianla1");
         game1thing=1;
@@ -347,6 +349,7 @@ static FirstScene* multiLayerSceneInstance;
         }
     
         selSprite.rotation=90*array2[numberp];
+        touchnum++;
     CGSize screenSize=[[CCDirector sharedDirector] winSize];
         
     }
@@ -448,8 +451,9 @@ static FirstScene* multiLayerSceneInstance;
 }
 
 -(void)Gameovers{
+    [MobClick event:@"game1level" label:@"game1level"];
      CGSize screenSize=[[CCDirector sharedDirector] winSize];
-    if (gametime<280) {
+    if (gametime<280 && touchnum<40) {
         game1level=3;
         [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine]playEffect:@"start3.mp3" ];
@@ -461,7 +465,7 @@ static FirstScene* multiLayerSceneInstance;
         
 
         
-    }else if (gametime<400){
+    }else if (gametime<400 && touchnum<55){
         game1level=2;
         NSLog(@"gamelevel~~%d",game1level);
           [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];

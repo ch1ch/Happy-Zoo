@@ -12,7 +12,6 @@
 		A50D871E174358770008EB00 /* pad-set.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50D871D174358770008EB00 /* pad-set.plist */; };
 		A50D8723174381C30008EB00 /* openAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50D871F174381C30008EB00 /* openAnimation.plist */; };
 		A50D8724174381C30008EB00 /* openAnimation.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A50D8720174381C30008EB00 /* openAnimation.pvr */; };
-		A50D874B1743B9E30008EB00 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50D874A1743B9E30008EB00 /* pig-run.plist */; };
 		A50D87641743D3220008EB00 /* bow1.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D874E1743D3220008EB00 /* bow1.png */; };
 		A50D87651743D3220008EB00 /* bow3.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D874F1743D3220008EB00 /* bow3.png */; };
 		A50D87661743D3220008EB00 /* cheese1.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D87501743D3220008EB00 /* cheese1.png */; };
@@ -390,6 +389,11 @@
 		A5F14872172D7AAE00612981 /* teach_2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14870172D7AAE00612981 /* teach_2.pvr */; };
 		A5F14875172D7E2600612981 /* ball_bang.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14873172D7E2600612981 /* ball_bang.plist */; };
 		A5F14876172D7E2600612981 /* ball_bang.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14874172D7E2600612981 /* ball_bang.pvr */; };
+		A5F14D9A175F4340004A4179 /* pig_land_car_long.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D98175F4340004A4179 /* pig_land_car_long.plist */; };
+		A5F14D9B175F4340004A4179 /* pig_land_car_long.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D99175F4340004A4179 /* pig_land_car_long.pvr */; };
+		A5F14D9D175F4465004A4179 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D9C175F4464004A4179 /* pig-run.plist */; };
+		A5F14DA0175F803C004A4179 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F14D9E175F803C004A4179 /* libMobClickLibrary.a */; };
+		A5F14DA2175F805B004A4179 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F14DA1175F805B004A4179 /* libz.dylib */; };
 		A5F293ED172E223A00A605DC /* animal1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F293EC172E223A00A605DC /* animal1-2.plist */; };
 		A5F293F4172EA97400A605DC /* teach_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F0172EA97400A605DC /* teach_3.plist */; };
 		A5F293F5172EA97400A605DC /* teach_3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F1172EA97400A605DC /* teach_3.pvr */; };
@@ -424,7 +428,6 @@
 		A50D871D174358770008EB00 /* pad-set.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pad-set.plist"; sourceTree = "<group>"; };
 		A50D871F174381C30008EB00 /* openAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = openAnimation.plist; sourceTree = "<group>"; };
 		A50D8720174381C30008EB00 /* openAnimation.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = openAnimation.pvr; sourceTree = "<group>"; };
-		A50D874A1743B9E30008EB00 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
 		A50D874E1743D3220008EB00 /* bow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bow1.png; sourceTree = "<group>"; };
 		A50D874F1743D3220008EB00 /* bow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bow3.png; sourceTree = "<group>"; };
 		A50D87501743D3220008EB00 /* cheese1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheese1.png; sourceTree = "<group>"; };
@@ -1007,6 +1010,12 @@
 		A5F14870172D7AAE00612981 /* teach_2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_2.pvr; sourceTree = "<group>"; };
 		A5F14873172D7E2600612981 /* ball_bang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ball_bang.plist; sourceTree = "<group>"; };
 		A5F14874172D7E2600612981 /* ball_bang.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_bang.pvr; sourceTree = "<group>"; };
+		A5F14D98175F4340004A4179 /* pig_land_car_long.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car_long.plist; sourceTree = "<group>"; };
+		A5F14D99175F4340004A4179 /* pig_land_car_long.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car_long.pvr; sourceTree = "<group>"; };
+		A5F14D9C175F4464004A4179 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
+		A5F14D9E175F803C004A4179 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		A5F14D9F175F803C004A4179 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		A5F14DA1175F805B004A4179 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A5F293EC172E223A00A605DC /* animal1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "animal1-2.plist"; sourceTree = "<group>"; };
 		A5F293F0172EA97400A605DC /* teach_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_3.plist; sourceTree = "<group>"; };
 		A5F293F1172EA97400A605DC /* teach_3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_3.pvr; sourceTree = "<group>"; };
@@ -1040,6 +1049,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F14DA2175F805B004A4179 /* libz.dylib in Frameworks */,
 				A5E3D0081698837800CDC5DA /* QuartzCore.framework in Frameworks */,
 				A5E3D00A1698837800CDC5DA /* OpenGLES.framework in Frameworks */,
 				A5E3D00C1698837800CDC5DA /* OpenAL.framework in Frameworks */,
@@ -1049,6 +1059,7 @@
 				A5E3D0141698837800CDC5DA /* Foundation.framework in Frameworks */,
 				A5E3D0161698837800CDC5DA /* CoreGraphics.framework in Frameworks */,
 				A5E3D0181698837800CDC5DA /* GameKit.framework in Frameworks */,
+				A5F14DA0175F803C004A4179 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,6 +1156,7 @@
 		A5E3CFF81698837800CDC5DA = {
 			isa = PBXGroup;
 			children = (
+				A5F14DA1175F805B004A4179 /* libz.dylib */,
 				A5E3D0191698837800CDC5DA /* Happy Zoo */,
 				A5E3D0061698837800CDC5DA /* Frameworks */,
 				A5E3D0041698837800CDC5DA /* Products */,
@@ -1235,6 +1247,8 @@
 				A5E3D0311698837800CDC5DA /* Info.plist */,
 				A5E3D0321698837800CDC5DA /* iTunesArtwork */,
 				A5E3D2331698837A00CDC5DA /* blocks.png */,
+				A5F14D9E175F803C004A4179 /* libMobClickLibrary.a */,
+				A5F14D9F175F803C004A4179 /* MobClick.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1931,13 +1945,15 @@
 				A58F7AC8171DB4BE006096E5 /* pig_land_car2.pvr */,
 				A58F7ADC172030BA006096E5 /* pig_land_car3.plist */,
 				A58F7ADD172030BA006096E5 /* pig_land_car3.pvr */,
+				A5F14D98175F4340004A4179 /* pig_land_car_long.plist */,
+				A5F14D99175F4340004A4179 /* pig_land_car_long.pvr */,
 				A5F1485E172D571400612981 /* pig_sky7.plist */,
 				A5F1485F172D571400612981 /* pig_sky7.pvr */,
 				A5F14866172D66C100612981 /* pig_thing1.plist */,
 				A5F14867172D66C100612981 /* pig_thing1.pvr */,
 				A5BD9455172D0E6D0076D057 /* pig_pig.plist */,
 				A5BD9456172D0E6D0076D057 /* pig_pig.pvr */,
-				A50D874A1743B9E30008EB00 /* pig-run.plist */,
+				A5F14D9C175F4464004A4179 /* pig-run.plist */,
 				A5F2940F172EBE1200A605DC /* pigrun-monskeng.png */,
 				A5BD9453172D0D4D0076D057 /* pigrun-pig01.png */,
 				A587F1F216CA04B30099247B /* pigrun-sign.png */,
@@ -2236,7 +2252,6 @@
 				A50D871E174358770008EB00 /* pad-set.plist in Resources */,
 				A50D8723174381C30008EB00 /* openAnimation.plist in Resources */,
 				A50D8724174381C30008EB00 /* openAnimation.pvr in Resources */,
-				A50D874B1743B9E30008EB00 /* pig-run.plist in Resources */,
 				A50D87641743D3220008EB00 /* bow1.png in Resources */,
 				A50D87651743D3220008EB00 /* bow3.png in Resources */,
 				A50D87661743D3220008EB00 /* cheese1.png in Resources */,
@@ -2265,6 +2280,9 @@
 				A5EB1D111743E786006269BD /* Default.png in Resources */,
 				A5EB1D151743F437006269BD /* openAnimation2.plist in Resources */,
 				A5EB1D161743F437006269BD /* openAnimation2.pvr in Resources */,
+				A5F14D9A175F4340004A4179 /* pig_land_car_long.plist in Resources */,
+				A5F14D9B175F4340004A4179 /* pig_land_car_long.pvr in Resources */,
+				A5F14D9D175F4465004A4179 /* pig-run.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2507,6 +2525,10 @@
 				);
 				INFOPLIST_FILE = "Happy Zoo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Happy Zoo\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -2574,6 +2596,10 @@
 				);
 				INFOPLIST_FILE = "Happy Zoo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Happy Zoo\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -2598,6 +2624,10 @@
 				);
 				INFOPLIST_FILE = "Happy Zoo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Happy Zoo\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

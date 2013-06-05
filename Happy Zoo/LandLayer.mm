@@ -20,6 +20,7 @@
     if ((self =[super init]))
     {
         [[CCDirector sharedDirector] resume];
+        gameoverb=NO;
 
         // ListLayerPosition= self.position;
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -32,6 +33,9 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car.plist"];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car2.plist"];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car3.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_land_car_long.plist"];
+        
+        
          [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pig_thing1.plist"];
         
         
@@ -79,7 +83,7 @@
         [self drawland6_2];
         [self drawmons4];
         [self drawland5];
-        //[self drawmons5];
+        [self drawmons5];
         [self drawland9];
         [self drawland3_2];
         [self drawmons6];
@@ -145,7 +149,8 @@
     if (gametime==230) {
         [[SimpleAudioEngine sharedEngine]playEffect:@"didibenben.mp3"];
     }
-    NSLog(@"time~%d",gametime);
+    //NSLog(@"time~%d",gametime);
+    NSLog(@"pig~~%f",pig.position.x);
 
     if (game3thing==1|game3thing==2) {
         
@@ -218,10 +223,10 @@
                 }else
                 {
                     // NSLog(@"2222222");
-                    if (b->GetLinearVelocity().x<7)
+                    if (b->GetLinearVelocity().x<7.5)
                     {
                         b2Vec2 tempvel=b->GetLinearVelocity();
-                        tempvel.x=7;
+                        tempvel.x=7.5;
                         b->SetLinearVelocity(tempvel);
                     }
                     if (b->GetLinearVelocity().x>10)
@@ -271,8 +276,15 @@
     oldpigpostion=newpigpostion;
     
     
-
-       [self setPosition:newpos1];
+    if (!gameoverb) {
+       [self setPosition:newpos1]; 
+    }else{
+        CGPoint postemp=pig.position;
+        postemp.x=postemp.x+20;
+        pig.position=postemp;
+    }
+    
+    
     //那个上下移动的特殊板块
     if (pos9.y==0) {
         pos9=land9.position;
@@ -308,6 +320,7 @@
             }else{
                 pigjumping=1;
             }
+            /*
             //刺猬判定
             if (spriteA.tag==371||spriteB.tag==371) {
                 [self Gameovers];
@@ -324,6 +337,10 @@
             if (spriteA.tag==306||spriteB.tag==306) {
                 [self Gameovers];
             }
+            if (spriteA.tag==304||spriteB.tag==304) {
+                [self Gameovers];
+            }
+             */
         }
     }
     
@@ -366,10 +383,15 @@
         [self Gameovers];
     }
     
-    if (self.position.x<screenSize.width*(-14.4)) {
+    if (self.position.x<screenSize.width*(-14.8)) {
               NSLog(@" you win!");
+        gameoverb=YES;
+
         //[self simulateLongLoadingTime];
-        [self Gameovers];
+        if (pig.position.x>screenSize.width*15.2) {
+            [self Gameovers];
+        }
+        
         
     }
   
@@ -445,8 +467,25 @@
     [self addChild:decorate400 z:13 tag:200];
     
     CCSpriteBatchNode *decorate3_100=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate3.png"];
-    [decorate3_100 setPosition:ccp(screenSize.width*3.98,screenSize.height*(-0.45))];
+    [decorate3_100 setPosition:ccp(screenSize.width*3.88,screenSize.height*(-0.45))];
     [self addChild:decorate3_100 z:13 tag:200];
+    
+    //天上花
+    CCSpriteBatchNode *decorate2000=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate2.png"];
+    [decorate2000 setPosition:ccp(screenSize.width*6.8,screenSize.height*(-0.3))];
+    [self addChild:decorate2000 z:12 tag:200];
+    
+    CCSpriteBatchNode *decorate3000=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate3.png"];
+    [decorate3000 setPosition:ccp(screenSize.width*6.8,screenSize.height*(-0.3))];
+    [self addChild:decorate3000 z:13 tag:200];
+    
+    CCSpriteBatchNode *decorate4000=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate3.png"];
+    [decorate4000 setPosition:ccp(screenSize.width*6.97,screenSize.height*(-0.45))];
+    [self addChild:decorate4000 z:13 tag:200];
+    
+    CCSpriteBatchNode *decorate3_1000=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate3.png"];
+    [decorate3_1000 setPosition:ccp(screenSize.width*6.68,screenSize.height*(-0.45))];
+    [self addChild:decorate3_1000 z:13 tag:200];
     
     
     
@@ -474,7 +513,7 @@
     
     //蚂蚁洞
     CCSpriteBatchNode* mayidong = [CCSprite spriteWithSpriteFrameName:@"pigrun-decorate14.png"];
-    [mayidong setPosition:ccp(screenSize.width*8.67 ,screenSize.height*(-0.84))];
+    [mayidong setPosition:ccp(screenSize.width*8.53 ,screenSize.height*(-0.72))];
     [self addChild:mayidong z:12];
     CCAnimation *anpig_sun = [CCAnimation animation];
     for(unsigned int i = 14; i <23; i++)
@@ -672,7 +711,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     monster2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster2.png"];
-    [monster2 setPosition:ccp(screenSize.width*3.35,screenSize.height*(-0.75))];
+    [monster2 setPosition:ccp(screenSize.width*3.35,screenSize.height*(-0.71))];
     [self addChild:monster2 z:12 tag:302];
     
     b2BodyDef bodyDef;
@@ -859,7 +898,7 @@
     
     
     land8_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land08.png"];
-    [land8_2 setPosition:ccp(screenSize.width*8.1,screenSize.height*(-0.67))];
+    [land8_2 setPosition:ccp(screenSize.width*8.05,screenSize.height*(-0.7))];
     [self addChild:land8_2 z:10 tag:108];
     
     
@@ -881,7 +920,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
   
     land6_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land17.png"];
-    [land6_2 setPosition:ccp(screenSize.width*8.24,screenSize.height*(-1.1))];
+    [land6_2 setPosition:ccp(screenSize.width*8.24,screenSize.height*(-1.0))];
     [self addChild:land6_2 z:10 tag:106];
   
     b2BodyDef bodyDef;
@@ -902,8 +941,8 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     monster4 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster4.png"];
-    [monster4 setPosition:ccp(screenSize.width*8.5,screenSize.height*(-0.6))];
-    [self addChild:monster4 z:12 tag:303];
+    [monster4 setPosition:ccp(screenSize.width*8.53,screenSize.height*(-0.57))];
+    [self addChild:monster4 z:12 tag:304];
     
     b2BodyDef bodyDef;
     
@@ -924,7 +963,7 @@
 - (void)drawland5 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
    
-    land5 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land05.png"];
+    land5 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land18.png"];
     [land5 setPosition:ccp(screenSize.width*9.52,screenSize.height*(-1.1))];
     [self addChild:land5 z:10 tag:105];
   
@@ -935,7 +974,7 @@
     bodyDef.userData = land5;
     b2Body *body = _world->CreateBody(&bodyDef);
     
-    NSString *name = @"pigrun-land05";
+    NSString *name = @"pigrun-land18";
     // add the fixture definitions to the body
     [[GB2ShapeCache sharedShapeCache] addFixturesToBody:body forShapeName:name];
     [land5 setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:name]];
@@ -946,7 +985,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     monster5 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster5.png"];
-    [monster5 setPosition:ccp(screenSize.width*9.93,screenSize.height*(-0.84))];
+    [monster5 setPosition:ccp(screenSize.width*9.99,screenSize.height*(-0.84))];
     [self addChild:monster5 z:12 tag:305];
     
     b2BodyDef bodyDef;
@@ -981,7 +1020,7 @@
     
     land9 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land15.png"];
     //[land9 setPosition:ccp(screenSize.width*1.78,screenSize.height*(-0.6))];
-    land9.position = CGPointMake(screenSize.width*10.7,screenSize.height*(-1.05));
+    land9.position = CGPointMake(screenSize.width*10.93,screenSize.height*(-1.05));
     [self addChild:land9 z:10 tag:109];
     
     
@@ -1007,7 +1046,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
   
     land3_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land03.png"];
-    [land3_2 setPosition:ccp(screenSize.width*11.35,screenSize.height*(-1.0))];
+    [land3_2 setPosition:ccp(screenSize.width*11.52,screenSize.height*(-1.0))];
     [self addChild:land3_2 z:10 tag:103];
     
     
@@ -1029,7 +1068,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     monster6 = [CCSprite spriteWithSpriteFrameName:@"pigrun-monster6.png"];
-    [monster6 setPosition:ccp(screenSize.width*12.05,screenSize.height*(-0.48))];
+    [monster6 setPosition:ccp(screenSize.width*12.25,screenSize.height*(-0.48))];
     [self addChild:monster6 z:12 tag:306];
     
     b2BodyDef bodyDef;
@@ -1054,7 +1093,7 @@
     
     land11 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land11.png"];
     
-    land11.position = CGPointMake(screenSize.width*12.36,screenSize.height*(-1.1));
+    land11.position = CGPointMake(screenSize.width*12.56,screenSize.height*(-1.1));
     [self addChild:land11 z:10 tag:111];
     
     
@@ -1080,7 +1119,7 @@
     
     land12 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land12.png"];
     
-    land12.position = CGPointMake(screenSize.width*12.66,screenSize.height*(-1.1));
+    land12.position = CGPointMake(screenSize.width*12.86,screenSize.height*(-1.1));
     [self addChild:land12 z:10 tag:112];
     
     
@@ -1106,7 +1145,7 @@
     
     land13 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land13.png"];
     
-    land13.position = CGPointMake(screenSize.width*12.96,screenSize.height*(-1.1));
+    land13.position = CGPointMake(screenSize.width*13.16,screenSize.height*(-1.1));
     [self addChild:land13 z:10 tag:113];
     
     
@@ -1133,7 +1172,7 @@
     
     
     land6_3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land17.png"];
-    [land6_3 setPosition:ccp(screenSize.width*13.32,screenSize.height*(-1.05))];
+    [land6_3 setPosition:ccp(screenSize.width*13.52,screenSize.height*(-1.05))];
     [self addChild:land6_3 z:10 tag:106];
     
     
@@ -1162,7 +1201,7 @@
     
     land14 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land14.png"];
     
-    land14.position = CGPointMake(screenSize.width*14.5,screenSize.height*(-1.0));
+    land14.position = CGPointMake(screenSize.width*14.8,screenSize.height*(-1.0));
     [self addChild:land14 z:10 tag:113];
     
     
@@ -1187,19 +1226,20 @@
 -(void)Gameovers{
     CGSize screenSize=[[CCDirector sharedDirector] winSize];
     
+
     CCSprite *gamesprite;
     CGPoint temppos=self.position;
-    if (gametime>450) {
+    if (self.position.x<screenSize.width*(-14.4)) {
         game3level=3;
           [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
-         [[SimpleAudioEngine sharedEngine]playEffect:@"start3.mp3" pitch:12.0 pan:5.0 gain:2.0];
+         [[SimpleAudioEngine sharedEngine]playEffect:@"start3.mp3"];
         gamesprite=[CCSprite spriteWithSpriteFrameName:@"game-end4.png"];
         temppos.x=screenSize.width*0.5-temppos.x;
         temppos.y=screenSize.height*0.5-temppos.y;
         gamesprite.position=temppos;
         [self addChild:gamesprite z:50 tag:501];
       
-    }else if (gametime>300){
+    }else if (self.position.x<screenSize.width*(-9.4)){
         game3level=2;
           [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
          [[SimpleAudioEngine sharedEngine]playEffect:@"start2.mp3"];
@@ -1210,7 +1250,7 @@
         gamesprite.position=temppos;
         [self addChild:gamesprite z:50 tag:501];
         
-    }else if(gametime>150){
+    }else if(self.position.x<screenSize.width*(-5.4)){
         game3level=1;
           [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine]playEffect:@"start1.mp3"];

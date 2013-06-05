@@ -49,6 +49,7 @@ extern int gamescene;
     int gameover;
     int gametime;
     BOOL isPlaying;
+    int touchnum;
 
 
     BOOL _moving;// Add after the HelloWorld interface
