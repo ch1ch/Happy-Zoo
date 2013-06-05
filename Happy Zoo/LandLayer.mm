@@ -1293,7 +1293,11 @@
     {
         if (pigjumping==0)
         {
-             [pig jump];
+            // [pig jump];
+            id pigjump = [CCCallFunc actionWithTarget:pig selector:@selector(jump)];
+            id pigdown = [CCCallFunc actionWithTarget:pig selector:@selector(down)];
+            [self runAction:[CCSequence actions:pigjump,[CCDelayTime actionWithDuration:2.4f],pigdown,NULL]];
+
         }
     }
     return TRUE;
