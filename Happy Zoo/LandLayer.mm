@@ -320,7 +320,7 @@
             }else{
                 pigjumping=1;
             }
-            /*
+            
             //刺猬判定
             if (spriteA.tag==371||spriteB.tag==371) {
                 [self Gameovers];
@@ -337,10 +337,11 @@
             if (spriteA.tag==306||spriteB.tag==306) {
                 [self Gameovers];
             }
+            //小狗判定
             if (spriteA.tag==304||spriteB.tag==304) {
                 [self Gameovers];
             }
-             */
+             
         }
     }
     
@@ -383,12 +384,12 @@
         [self Gameovers];
     }
     
-    if (self.position.x<screenSize.width*(-14.8)) {
+    if (self.position.x<screenSize.width*(-14.7)) {
               NSLog(@" you win!");
         gameoverb=YES;
 
         //[self simulateLongLoadingTime];
-        if (pig.position.x>screenSize.width*15.2) {
+        if (pig.position.x>screenSize.width*15.9) {
             [self Gameovers];
         }
         
@@ -535,11 +536,11 @@
     
     //结局
     CCSpriteBatchNode *decorate11=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate11.png"];
-    [decorate11 setPosition:ccp(screenSize.width*15.12,screenSize.height*(-0.42))];
+    [decorate11 setPosition:ccp(screenSize.width*15.52,screenSize.height*(-0.42))];
     [self addChild:decorate11 z:12 tag:200];
     
     CCSpriteBatchNode *decorate12=[CCSprite spriteWithSpriteFrameName:@"pigrun-decorate12.png"];
-    [decorate12 setPosition:ccp(screenSize.width*15.22,screenSize.height*(-0.6))];
+    [decorate12 setPosition:ccp(screenSize.width*15.62,screenSize.height*(-0.6))];
     [self addChild:decorate12 z:13 tag:200];
 
     
@@ -875,7 +876,7 @@
     
     
     land8_1 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land08.png"];
-    [land8_1 setPosition:ccp(screenSize.width*7.9,screenSize.height*(-0.77))];
+    [land8_1 setPosition:ccp(screenSize.width*7.88,screenSize.height*(-0.77))];
     [self addChild:land8_1 z:10 tag:108];
     
     
@@ -898,7 +899,7 @@
     
     
     land8_2 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land08.png"];
-    [land8_2 setPosition:ccp(screenSize.width*8.05,screenSize.height*(-0.7))];
+    [land8_2 setPosition:ccp(screenSize.width*8.05,screenSize.height*(-0.65))];
     [self addChild:land8_2 z:10 tag:108];
     
     
@@ -1172,7 +1173,7 @@
     
     
     land6_3 = [CCSprite spriteWithSpriteFrameName:@"pigrun-land17.png"];
-    [land6_3 setPosition:ccp(screenSize.width*13.52,screenSize.height*(-1.05))];
+    [land6_3 setPosition:ccp(screenSize.width*13.52,screenSize.height*(-1.1))];
     [self addChild:land6_3 z:10 tag:106];
     
     

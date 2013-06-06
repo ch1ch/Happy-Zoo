@@ -244,7 +244,7 @@ static FirstScene* multiLayerSceneInstance;
 - (void)update:(ccTime)dt {
     gametime++;
     //NSLog(@"Time is =%d=",gametime);
-    NSLog(@"Touch is =%d=",touchnum);
+    //NSLog(@"Touch is =%d=",touchnum);
     CGSize screenSize=[[CCDirector sharedDirector] winSize];
     if (game1thing==1) {
        
@@ -317,6 +317,7 @@ static FirstScene* multiLayerSceneInstance;
 
          array1[numberp]++;
          array2[numberp]++;
+        /*
         if (numberp!=0 && numberp!=14 && numberp!=16 &&num<=19)
         {
             if (numberp==4 || numberp==6 || numberp==9 || numberp==11 ||numberp==18 || numberp==15)
@@ -347,12 +348,13 @@ static FirstScene* multiLayerSceneInstance;
            
             }
         }
+        */
     
         selSprite.rotation=90*array2[numberp];
         touchnum++;
     CGSize screenSize=[[CCDirector sharedDirector] winSize];
         
-    }
+  
     
     
     pAnim = [CCAnimation animation];
@@ -374,9 +376,7 @@ static FirstScene* multiLayerSceneInstance;
         CCSprite* Spwater = [CCSprite spriteWithSpriteFrameName:@"Fish_water1.png"];
         [Spwater setPosition:ccp(screenSize.width*0.5 ,screenSize.height*0.5)];
         [self addChild:Spwater  z:6];
-        
 
-  
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"switch1.plist"];
         CCSpriteBatchNode* Spswitch = [CCSprite spriteWithSpriteFrameName:@"switch2-1.png"];
@@ -421,7 +421,7 @@ static FirstScene* multiLayerSceneInstance;
          //结局水动画
         [Spwater runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.1f],[CCAnimate  actionWithAnimation:pAnim],acfrontpie,acfwafish,acfishblack,[CCDelayTime actionWithDuration:5.1f],NULL]];
         
-
+        }
     }
     
 }

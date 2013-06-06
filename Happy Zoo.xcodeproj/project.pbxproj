@@ -36,6 +36,15 @@
 		A50D877F1743DA0B0008EB00 /* mainlist5_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D877D1743DA0B0008EB00 /* mainlist5_2.png */; };
 		A50D87821743DB430008EB00 /* apple1.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D87801743DB420008EB00 /* apple1.png */; };
 		A50D87831743DB430008EB00 /* apple3.png in Resources */ = {isa = PBXBuildFile; fileRef = A50D87811743DB430008EB00 /* apple3.png */; };
+		A55569231760E4F4007C3922 /* teach_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A555691B1760E4F4007C3922 /* teach_1.plist */; };
+		A55569241760E4F4007C3922 /* teach_1.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A555691C1760E4F4007C3922 /* teach_1.pvr */; };
+		A55569251760E4F4007C3922 /* teach_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A555691D1760E4F4007C3922 /* teach_2.plist */; };
+		A55569261760E4F4007C3922 /* teach_2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A555691E1760E4F4007C3922 /* teach_2.pvr */; };
+		A55569271760E4F4007C3922 /* teach_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A555691F1760E4F4007C3922 /* teach_3.plist */; };
+		A55569281760E4F4007C3922 /* teach_3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A55569201760E4F4007C3922 /* teach_3.pvr */; };
+		A55569291760E4F4007C3922 /* teach_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = A55569211760E4F4007C3922 /* teach_4.plist */; };
+		A555692A1760E4F4007C3922 /* teach_4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A55569221760E4F4007C3922 /* teach_4.pvr */; };
+		A555692C17610171007C3922 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A555692B17610171007C3922 /* pig-run.plist */; };
 		A587F1F516CA04B30099247B /* pigrun-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = A587F1F216CA04B30099247B /* pigrun-sign.png */; };
 		A58BA24B1712FE4C00394BB4 /* pig_land_car.plist in Resources */ = {isa = PBXBuildFile; fileRef = A58BA2471712FE4C00394BB4 /* pig_land_car.plist */; };
 		A58BA24C1712FE4C00394BB4 /* pig_land_car.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */; };
@@ -383,22 +392,13 @@
 		A5F14861172D571400612981 /* pig_sky7.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F1485F172D571400612981 /* pig_sky7.pvr */; };
 		A5F14868172D66C200612981 /* pig_thing1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14866172D66C100612981 /* pig_thing1.plist */; };
 		A5F14869172D66C200612981 /* pig_thing1.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14867172D66C100612981 /* pig_thing1.pvr */; };
-		A5F1486D172D731B00612981 /* teach_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F1486B172D731B00612981 /* teach_1.plist */; };
-		A5F1486E172D731B00612981 /* teach_1.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F1486C172D731B00612981 /* teach_1.pvr */; };
-		A5F14871172D7AAE00612981 /* teach_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F1486F172D7AAE00612981 /* teach_2.plist */; };
-		A5F14872172D7AAE00612981 /* teach_2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14870172D7AAE00612981 /* teach_2.pvr */; };
 		A5F14875172D7E2600612981 /* ball_bang.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14873172D7E2600612981 /* ball_bang.plist */; };
 		A5F14876172D7E2600612981 /* ball_bang.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14874172D7E2600612981 /* ball_bang.pvr */; };
 		A5F14D9A175F4340004A4179 /* pig_land_car_long.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D98175F4340004A4179 /* pig_land_car_long.plist */; };
 		A5F14D9B175F4340004A4179 /* pig_land_car_long.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D99175F4340004A4179 /* pig_land_car_long.pvr */; };
-		A5F14D9D175F4465004A4179 /* pig-run.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F14D9C175F4464004A4179 /* pig-run.plist */; };
 		A5F14DA0175F803C004A4179 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F14D9E175F803C004A4179 /* libMobClickLibrary.a */; };
 		A5F14DA2175F805B004A4179 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F14DA1175F805B004A4179 /* libz.dylib */; };
 		A5F293ED172E223A00A605DC /* animal1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F293EC172E223A00A605DC /* animal1-2.plist */; };
-		A5F293F4172EA97400A605DC /* teach_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F0172EA97400A605DC /* teach_3.plist */; };
-		A5F293F5172EA97400A605DC /* teach_3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F1172EA97400A605DC /* teach_3.pvr */; };
-		A5F293F6172EA97400A605DC /* teach_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F2172EA97400A605DC /* teach_4.plist */; };
-		A5F293F7172EA97400A605DC /* teach_4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F3172EA97400A605DC /* teach_4.pvr */; };
 		A5F293FA172EABD200A605DC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F8172EABD200A605DC /* Icon.png */; };
 		A5F293FB172EABD200A605DC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F293F9172EABD200A605DC /* Icon@2x.png */; };
 		A5F2940A172EB9DC00A605DC /* foundthing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5F29405172EB9DC00A605DC /* foundthing.mp3 */; };
@@ -452,6 +452,15 @@
 		A50D877D1743DA0B0008EB00 /* mainlist5_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainlist5_2.png; sourceTree = "<group>"; };
 		A50D87801743DB420008EB00 /* apple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple1.png; sourceTree = "<group>"; };
 		A50D87811743DB430008EB00 /* apple3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple3.png; sourceTree = "<group>"; };
+		A555691B1760E4F4007C3922 /* teach_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_1.plist; sourceTree = "<group>"; };
+		A555691C1760E4F4007C3922 /* teach_1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_1.pvr; sourceTree = "<group>"; };
+		A555691D1760E4F4007C3922 /* teach_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_2.plist; sourceTree = "<group>"; };
+		A555691E1760E4F4007C3922 /* teach_2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_2.pvr; sourceTree = "<group>"; };
+		A555691F1760E4F4007C3922 /* teach_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_3.plist; sourceTree = "<group>"; };
+		A55569201760E4F4007C3922 /* teach_3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_3.pvr; sourceTree = "<group>"; };
+		A55569211760E4F4007C3922 /* teach_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_4.plist; sourceTree = "<group>"; };
+		A55569221760E4F4007C3922 /* teach_4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_4.pvr; sourceTree = "<group>"; };
+		A555692B17610171007C3922 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
 		A587F1F216CA04B30099247B /* pigrun-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pigrun-sign.png"; sourceTree = "<group>"; };
 		A58BA2471712FE4C00394BB4 /* pig_land_car.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car.plist; sourceTree = "<group>"; };
 		A58BA2481712FE4C00394BB4 /* pig_land_car.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car.pvr; sourceTree = "<group>"; };
@@ -1004,23 +1013,14 @@
 		A5F1485F172D571400612981 /* pig_sky7.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_sky7.pvr; sourceTree = "<group>"; };
 		A5F14866172D66C100612981 /* pig_thing1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_thing1.plist; sourceTree = "<group>"; };
 		A5F14867172D66C100612981 /* pig_thing1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_thing1.pvr; sourceTree = "<group>"; };
-		A5F1486B172D731B00612981 /* teach_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_1.plist; sourceTree = "<group>"; };
-		A5F1486C172D731B00612981 /* teach_1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_1.pvr; sourceTree = "<group>"; };
-		A5F1486F172D7AAE00612981 /* teach_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_2.plist; sourceTree = "<group>"; };
-		A5F14870172D7AAE00612981 /* teach_2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_2.pvr; sourceTree = "<group>"; };
 		A5F14873172D7E2600612981 /* ball_bang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ball_bang.plist; sourceTree = "<group>"; };
 		A5F14874172D7E2600612981 /* ball_bang.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_bang.pvr; sourceTree = "<group>"; };
 		A5F14D98175F4340004A4179 /* pig_land_car_long.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pig_land_car_long.plist; sourceTree = "<group>"; };
 		A5F14D99175F4340004A4179 /* pig_land_car_long.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = pig_land_car_long.pvr; sourceTree = "<group>"; };
-		A5F14D9C175F4464004A4179 /* pig-run.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pig-run.plist"; sourceTree = "<group>"; };
 		A5F14D9E175F803C004A4179 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A5F14D9F175F803C004A4179 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A5F14DA1175F805B004A4179 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A5F293EC172E223A00A605DC /* animal1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "animal1-2.plist"; sourceTree = "<group>"; };
-		A5F293F0172EA97400A605DC /* teach_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_3.plist; sourceTree = "<group>"; };
-		A5F293F1172EA97400A605DC /* teach_3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_3.pvr; sourceTree = "<group>"; };
-		A5F293F2172EA97400A605DC /* teach_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teach_4.plist; sourceTree = "<group>"; };
-		A5F293F3172EA97400A605DC /* teach_4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = teach_4.pvr; sourceTree = "<group>"; };
 		A5F293F8172EABD200A605DC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A5F293F9172EABD200A605DC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		A5F29405172EB9DC00A605DC /* foundthing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = foundthing.mp3; sourceTree = "<group>"; };
@@ -1156,9 +1156,9 @@
 		A5E3CFF81698837800CDC5DA = {
 			isa = PBXGroup;
 			children = (
-				A5F14DA1175F805B004A4179 /* libz.dylib */,
 				A5E3D0191698837800CDC5DA /* Happy Zoo */,
 				A5E3D0061698837800CDC5DA /* Frameworks */,
+				A5F14DA1175F805B004A4179 /* libz.dylib */,
 				A5E3D0041698837800CDC5DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1953,7 +1953,7 @@
 				A5F14867172D66C100612981 /* pig_thing1.pvr */,
 				A5BD9455172D0E6D0076D057 /* pig_pig.plist */,
 				A5BD9456172D0E6D0076D057 /* pig_pig.pvr */,
-				A5F14D9C175F4464004A4179 /* pig-run.plist */,
+				A555692B17610171007C3922 /* pig-run.plist */,
 				A5F2940F172EBE1200A605DC /* pigrun-monskeng.png */,
 				A5BD9453172D0D4D0076D057 /* pigrun-pig01.png */,
 				A587F1F216CA04B30099247B /* pigrun-sign.png */,
@@ -1964,14 +1964,14 @@
 		A5F1486A172D730E00612981 /* teach */ = {
 			isa = PBXGroup;
 			children = (
-				A5F1486B172D731B00612981 /* teach_1.plist */,
-				A5F1486C172D731B00612981 /* teach_1.pvr */,
-				A5F1486F172D7AAE00612981 /* teach_2.plist */,
-				A5F14870172D7AAE00612981 /* teach_2.pvr */,
-				A5F293F0172EA97400A605DC /* teach_3.plist */,
-				A5F293F1172EA97400A605DC /* teach_3.pvr */,
-				A5F293F2172EA97400A605DC /* teach_4.plist */,
-				A5F293F3172EA97400A605DC /* teach_4.pvr */,
+				A555691B1760E4F4007C3922 /* teach_1.plist */,
+				A555691C1760E4F4007C3922 /* teach_1.pvr */,
+				A555691D1760E4F4007C3922 /* teach_2.plist */,
+				A555691E1760E4F4007C3922 /* teach_2.pvr */,
+				A555691F1760E4F4007C3922 /* teach_3.plist */,
+				A55569201760E4F4007C3922 /* teach_3.pvr */,
+				A55569211760E4F4007C3922 /* teach_4.plist */,
+				A55569221760E4F4007C3922 /* teach_4.pvr */,
 			);
 			name = teach;
 			sourceTree = "<group>";
@@ -2215,17 +2215,9 @@
 				A5F14861172D571400612981 /* pig_sky7.pvr in Resources */,
 				A5F14868172D66C200612981 /* pig_thing1.plist in Resources */,
 				A5F14869172D66C200612981 /* pig_thing1.pvr in Resources */,
-				A5F1486D172D731B00612981 /* teach_1.plist in Resources */,
-				A5F1486E172D731B00612981 /* teach_1.pvr in Resources */,
-				A5F14871172D7AAE00612981 /* teach_2.plist in Resources */,
-				A5F14872172D7AAE00612981 /* teach_2.pvr in Resources */,
 				A5F14875172D7E2600612981 /* ball_bang.plist in Resources */,
 				A5F14876172D7E2600612981 /* ball_bang.pvr in Resources */,
 				A5F293ED172E223A00A605DC /* animal1-2.plist in Resources */,
-				A5F293F4172EA97400A605DC /* teach_3.plist in Resources */,
-				A5F293F5172EA97400A605DC /* teach_3.pvr in Resources */,
-				A5F293F6172EA97400A605DC /* teach_4.plist in Resources */,
-				A5F293F7172EA97400A605DC /* teach_4.pvr in Resources */,
 				A5F293FA172EABD200A605DC /* Icon.png in Resources */,
 				A5F293FB172EABD200A605DC /* Icon@2x.png in Resources */,
 				A5F2940A172EB9DC00A605DC /* foundthing.mp3 in Resources */,
@@ -2282,7 +2274,15 @@
 				A5EB1D161743F437006269BD /* openAnimation2.pvr in Resources */,
 				A5F14D9A175F4340004A4179 /* pig_land_car_long.plist in Resources */,
 				A5F14D9B175F4340004A4179 /* pig_land_car_long.pvr in Resources */,
-				A5F14D9D175F4465004A4179 /* pig-run.plist in Resources */,
+				A55569231760E4F4007C3922 /* teach_1.plist in Resources */,
+				A55569241760E4F4007C3922 /* teach_1.pvr in Resources */,
+				A55569251760E4F4007C3922 /* teach_2.plist in Resources */,
+				A55569261760E4F4007C3922 /* teach_2.pvr in Resources */,
+				A55569271760E4F4007C3922 /* teach_3.plist in Resources */,
+				A55569281760E4F4007C3922 /* teach_3.pvr in Resources */,
+				A55569291760E4F4007C3922 /* teach_4.plist in Resources */,
+				A555692A1760E4F4007C3922 /* teach_4.pvr in Resources */,
+				A555692C17610171007C3922 /* pig-run.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

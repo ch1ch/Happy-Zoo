@@ -116,7 +116,7 @@
         //顶层
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_top_default.plist"];
         Stop = [CCSprite spriteWithSpriteFrameName:@"ball_top_1.png"];
-        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*6.0)];
+        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*5.2)];
         [self addChild:Stop z:7];
         
         CCAnimation *antop = [CCAnimation animation];
@@ -637,7 +637,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal13_1.png"];
-    [Animal4 setPosition:ccp(screenSize.width*0.7,screenSize.height*6.8)];
+    [Animal4 setPosition:ccp(screenSize.width*0.7,screenSize.height*6.9)];
     [self addChild:Animal4 z:15 tag:53];
     [obstacle addObject:Animal4];
     
@@ -674,7 +674,7 @@
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     
     CCSprite *Animal4 = [CCSprite spriteWithSpriteFrameName:@"ball_animal14_1.png"];
-    [Animal4 setPosition:ccp(screenSize.width*(-0.01),screenSize.height*7.5)];
+    [Animal4 setPosition:ccp(screenSize.width*(-0.01),screenSize.height*7.7)];
     [self addChild:Animal4 z:15 tag:64];
     [obstacle addObject:Animal4];
     
@@ -764,7 +764,7 @@
 	// this determines how sensitive the accelerometer reacts (higher = more sensitive)
 	float sensitivity = 7.0f;
 	// how fast the velocity can be at most
-	float maxVelocity = 190;
+	float maxVelocity = 240;
     
 	// adjust velocity based on current accelerometer acceleration
 	playerVelocity.y = playerVelocity.y * deceleration + acceleration.y * sensitivity;
@@ -864,7 +864,6 @@
 
             id acfover = [CCCallFunc actionWithTarget:self selector:@selector(gampause)];
             
-            //[Stop runAction:[CCSequence actions:acfover,NULL]];
             [self Gameovers];
             gamewin=1;
             }
@@ -875,7 +874,7 @@
         CGPoint pos4=Stop.position;
         pos4.y-=10;
         Stop.position=pos4;
-        CCLOG(@" stop.postion.y=%f",pos4.y);
+       // CCLOG(@" stop.postion.y=%f",pos4.y);
     }
     
     

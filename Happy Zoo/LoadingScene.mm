@@ -34,31 +34,9 @@
 {
 	if ((self = [super init]))
 	{
-        CGSize screenSize = [[CCDirector sharedDirector] winSize];
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 		targetScene_ = targetScene;
-
-
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"opensc1_default.plist"];
-        
-  
-        //公交车
-        CCSpriteBatchNode* Spsbus = [CCSprite spriteWithSpriteFrameName:@"opbus1.png"];
-        [Spsbus setPosition:ccp(screenSize.width*0.5 ,screenSize.height*0.57)];
-        //[self addChild:Spsbus z:10];
-        CCAnimation *anibus = [CCAnimation animation];
-        int num=1;
-        for(; num < 9; num++)
-        {
-            NSString *nabus = [NSString stringWithFormat:@"opbus%d.png", num];
-            [anibus  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:nabus]];
-        }
-        [anibus setDelayPerUnit:0.2f];
-        id actbus =[CCRepeatForever actionWithAction: [CCSequence actions:[CCDelayTime actionWithDuration:0.2f], [CCAnimate  actionWithAnimation:anibus], NULL]];
-        [Spsbus  runAction:actbus];
-        
-        
+    
          [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 
 		[self scheduleUpdate];
