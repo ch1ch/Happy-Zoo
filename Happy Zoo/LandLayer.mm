@@ -202,16 +202,16 @@
         //获得汽车速度，保证最低速度
         if (ballData.tag==100)
         {
-            //NSLog(@"sudu%f",b->GetLinearVelocity().x);
+            //NSLog(@"self.po.x=%f   ==sudu%f",self.position.x,b->GetLinearVelocity().x);
             if (self.position.x<screenSize.width*(-1.0))
             {
                 if (self.position.x>screenSize.width*(-2.5))
                 {
                    // NSLog(@"111111");
-                    if (b->GetLinearVelocity().x<5)
+                    if (b->GetLinearVelocity().x<6.5)
                     {
                         b2Vec2 tempvel=b->GetLinearVelocity();
-                        tempvel.x=5;
+                        tempvel.x=6.5;
                         b->SetLinearVelocity(tempvel);
                     }
                     if (b->GetLinearVelocity().x>8)
@@ -223,10 +223,11 @@
                 }else
                 {
                     // NSLog(@"2222222");
-                    if (b->GetLinearVelocity().x<7.5)
+                    
+                    if (b->GetLinearVelocity().x<8)
                     {
                         b2Vec2 tempvel=b->GetLinearVelocity();
-                        tempvel.x=7.5;
+                        tempvel.x=8;
                         b->SetLinearVelocity(tempvel);
                     }
                     if (b->GetLinearVelocity().x>10)
@@ -1397,7 +1398,7 @@
 -(void) gomenu7{
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] resume];
-    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene4Scene];
+    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene2Scene];
     [[CCDirector sharedDirector] replaceScene:newScene];
     
 }

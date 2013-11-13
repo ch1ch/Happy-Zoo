@@ -643,7 +643,7 @@ static FirstScene* multiLayerSceneInstance;
 
 -(void) gomenu7{
     [[CCDirector sharedDirector] resume];
-    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene2Scene];
+    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene4Scene];
     [[CCDirector sharedDirector] replaceScene:newScene];
     
 }

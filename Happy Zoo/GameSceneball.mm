@@ -116,7 +116,7 @@
         //顶层
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_top_default.plist"];
         Stop = [CCSprite spriteWithSpriteFrameName:@"ball_top_1.png"];
-        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*5.2)];
+        [Stop setPosition:ccp(screenSize.width*0.5 ,screenSize.height*5.6)];
         [self addChild:Stop z:7];
         
         CCAnimation *antop = [CCAnimation animation];
@@ -970,7 +970,8 @@
             CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
            // NSLog(@"%d  and   %d   zhuangjila~~",spriteA.tag,spriteB.tag);
             
-            /*if(!(spriteA.tag==11 && spriteB.tag==13) &&!(spriteA.tag==12 && spriteB.tag==41)&&!(spriteA.tag==13 && spriteB.tag==41)&&!(spriteA.tag==42 && spriteB.tag==44)&&!(spriteA.tag==44 && spriteB.tag==45)&&!(spriteA.tag==48 && spriteB.tag==49)&&!(spriteA.tag==12 && spriteB.tag==48)&&!(spriteA.tag==12 && spriteB.tag==13)&&!(spriteA.tag==11 && spriteB.tag==42)&&!(spriteA.tag==11 && spriteB.tag==44)&&!(spriteA.tag==50 && spriteB.tag==51)&&!(spriteA.tag==51 && spriteB.tag==53))*/
+
+
                 if(spriteA.tag==10||spriteB.tag==10)
                 {
                     if((spriteA.position.y+[spriteA texture].contentSize.height>-50) && (spriteB.position.y+[spriteB texture].contentSize.height>-50) )
@@ -984,45 +985,19 @@
                            // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
                                               [self gamefalse];
                         }
-                                    
-                 //  [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
+
                         
  
                     }
 
-                    
-                   // [label1 setString:[NSString stringWithFormat:@"%d  and  %d",spriteA.tag,spriteB.tag]];
 
-                    //[label1 setString:[NSString stringWithFormat:@"Game Over!"]];
-
-
-                    /*
-                    
-                    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"ball_bang_default.plist"];
-                    
-                    CCSpriteBatchNode *bang = [CCSprite spriteWithSpriteFrameName:@"ball_bang1.png"];
-                    [bang setPosition:ccp(ballself.position.x ,ballself.position.y+120)];
-                    [self addChild:bang z:12];
-                    CCAnimation *angrass = [CCAnimation animation];
-                    for(unsigned int i = 1; i < 3; i++)
-                    {
-                        NSString *nagrass = [NSString stringWithFormat:@"ball_bang%d.png", i];
-                        [angrass  addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:nagrass]];
-                    }
-                    [angrass setDelayPerUnit:0.5f];
-
-                    
-                    id acfover = [CCCallFunc actionWithTarget:self selector:@selector(gampause)];
-*/
-
-
-                }
+            }
         }
     }
     
    
-    
 }
+
 -(void)gamefalse{
     gameover=1;
     
@@ -1266,7 +1241,7 @@
 }
 -(void) gomenu7{
     [[CCDirector sharedDirector] resume];
-    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetScene3Scene];
+    CCScene* newScene = [LoadingScene sceneWithTargetScene:TargetSceneFirstScene];
     [[CCDirector sharedDirector] replaceScene:newScene];
     
 }
