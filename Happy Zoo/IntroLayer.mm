@@ -1,15 +1,20 @@
 //
 //  IntroLayer.m
-//  Happy Zoo
+//  test1
 //
-//  Created by f on 1/5/13.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Created by f on 10/26/12.
+//  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
 
 // Import the interfaces
 #import "IntroLayer.h"
-#import "HelloWorldLayer.h"
+#import "FirstScene.h"
+#import "OpeningLayer.h"
+#import "OpeningStart.h"
+//#import "GameSceneball.h"
+#import "GameScenerun.h"
+//#import "GameScenepad.h"
 
 
 #pragma mark - IntroLayer
@@ -32,6 +37,7 @@
 	// return the scene
 	return scene;
 }
+//int gamestarscore;
 
 // 
 -(void) onEnter
@@ -60,6 +66,9 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[OpeningLayer scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[FirstScene scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScenerun scene] withColor:ccWHITE]];
+
 }
 @end
