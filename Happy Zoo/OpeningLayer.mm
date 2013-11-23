@@ -36,7 +36,7 @@
          [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"bus.mp3" loop:YES];
         
         //背景，两张轮换
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openAnimation.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openani1.plist"];
          [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"openAnimation2.plist"];
         
         CCSpriteBatchNode* Spsbackgroup = [CCSprite spriteWithSpriteFrameName:@"opsky1.png"];

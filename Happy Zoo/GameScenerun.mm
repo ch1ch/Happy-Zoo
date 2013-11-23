@@ -59,7 +59,7 @@ static FirstScene* multiLayerSceneInstance;
         menulayer=[MenuLayer node];
         
         landlayer=[LandLayer node];
-        [self addChild:menulayer z:10 tag:LayerTagGameLayer];
+        [self addChild:menulayer z:30 tag:LayerTagGameLayer];
         [self addChild:landlayer z:10 tag:200];
 
         //背景，两张轮换

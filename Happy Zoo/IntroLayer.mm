@@ -66,9 +66,9 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[OpeningLayer scene] withColor:ccWHITE]];
+	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[OpeningLayer scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[FirstScene scene] withColor:ccWHITE]];
-    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScenerun scene] withColor:ccWHITE]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScenerun scene] withColor:ccWHITE]];
 
 }
 @end

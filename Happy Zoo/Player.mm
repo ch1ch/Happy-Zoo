@@ -45,12 +45,12 @@
 }
 
 -(void) jump {
-    b2Vec2 impulse = b2Vec2(0.0f, 310.0f);
+    b2Vec2 impulse = b2Vec2(0.0f, 180.0f);
     body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
     NSLog(@"jump~~~");
 }
 -(void) down {
-    b2Vec2 impulse = b2Vec2(0.0f, -120.0f);
+    b2Vec2 impulse = b2Vec2(0.0f, -190.0f);
     body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
      NSLog(@"down~~~");
 }
